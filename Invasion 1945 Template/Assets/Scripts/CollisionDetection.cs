@@ -17,8 +17,8 @@ public class CollisionDetection : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collider) {
 		resetValues ();
-		Application.LoadLevel (Application.loadedLevel);
-	}
+        Application.LoadLevel (Application.loadedLevel);
+    }
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		Debug.Log ("GOT COIN");
