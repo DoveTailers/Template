@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{4DD2AF1E-FAC9-4716-9EA6-9DF2FF3E82EE}") = "Invasion 1945 Template", "Assembly-CSharp.csproj", "{07C1825D-1C25-26BF-D74C-DAA00F78866E}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invasion 1945 Template.CSharp", "Invasion 1945 Template.CSharp.csproj", "{C0BC9BFB-5F73-91E9-637D-A6BF657B5BFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{07C1825D-1C25-26BF-D74C-DAA00F78866E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07C1825D-1C25-26BF-D74C-DAA00F78866E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07C1825D-1C25-26BF-D74C-DAA00F78866E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07C1825D-1C25-26BF-D74C-DAA00F78866E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BC9BFB-5F73-91E9-637D-A6BF657B5BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BC9BFB-5F73-91E9-637D-A6BF657B5BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BC9BFB-5F73-91E9-637D-A6BF657B5BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BC9BFB-5F73-91E9-637D-A6BF657B5BFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
