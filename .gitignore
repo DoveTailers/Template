@@ -224,14 +224,14 @@ pip-log.txt
 # =============== #
 # Unity generated #
 # =============== #
-*Temp/
-*Library/
+Temp/
+Library/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
-*ExportedObj/
-*obj/
+ExportedObj/
+obj/
 *.svd
 *.userprefs
 /*.csproj
