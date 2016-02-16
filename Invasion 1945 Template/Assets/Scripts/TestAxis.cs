@@ -27,19 +27,19 @@ public class TestAxis : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
+		float moveHorizontal = Input.GetAxisRaw("Horizontal");
+		float moveVertical = Input.GetAxisRaw("Vertical");
 
-		Vector2 movement = new Vector3(moveHorizontal, moveVertical);
+		Vector2 movement = new Vector3(moveHorizontal, moveVertical, 0);
 
 		Rigidbody2D spaceShipRigidBody = GetComponent<Rigidbody2D>();
 
 		spaceShipRigidBody.velocity = movement * speed;
-
-		spaceShipRigidBody.position = new Vector2 (
-			Mathf.Clamp(spaceShipRigidBody.position.x, boundary.xMin, boundary.xMax),
-			Mathf.Clamp(spaceShipRigidBody.position.y, boundary.yMin, boundary.yMax)
-		);
-			
+		if (moveHorizontal == 1 || moveVertical == 1) {
+			spaceShipRigidBody.position = new Vector2 (
+				Mathf.Clamp(spaceShipRigidBody.position.x, boundary.xMin, boundary.xMax),
+				Mathf.Clamp(spaceShipRigidBody.position.y, boundary.yMin, boundary.yMax)
+			);
+		}
 	}
 }
