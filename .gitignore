@@ -226,6 +226,7 @@ pip-log.txt
 # =============== #
 Temp/
 Library/
+*.metadata
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
