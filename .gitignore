@@ -224,9 +224,13 @@ pip-log.txt
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
-Library/
-*.metadata
+**/Library/*
+**/Temp/*
+**/*.csproj
+**/*.unityproj
+**/*.sln
+**/*.userprefs
+**/*.pidb
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
