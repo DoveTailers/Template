@@ -224,8 +224,13 @@ pip-log.txt
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
-Library/
+**/Library/*
+**/Temp/*
+**/*.csproj
+**/*.unityproj
+**/*.sln
+**/*.userprefs
+**/*.pidb
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -252,3 +257,6 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+Invasion 1945 Template/Invasion 1945 Template.CSharp.csproj
+Invasion 1945 Template/ProjectSettings/ProjectSettings.asset
+Invasion 1945 Template/ProjectSettings/ProjectVersion.txt
