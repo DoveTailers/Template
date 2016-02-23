@@ -16,22 +16,16 @@ public class CollisionDetection : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collider) {
-		resetValues ();
-        Application.LoadLevel (Application.loadedLevel);
+		if (!collider.gameObject.CompareTag ("Maze")) {
+			resetValues ();
+			Application.LoadLevel (Application.loadedLevel);
+		}
+
     }
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		Debug.Log ("GOT COIN");
 		Destroy (collider.gameObject);
-
 		reverse = true;
-
-
-
-		/*
-		innerCircleRotationSpeed *= -1;
-		outerCircleRotationSpeed *= -1;
-		*/
 	}
 
 	void resetValues() {

@@ -45,8 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Menu\Scripts\LoadOnClick.cs" />
+     <Compile Include="Assets\Menu\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\CollisionDetection.cs" />
      <Compile Include="Assets\Scripts\Puzzle1.cs" />
+     <Compile Include="Assets\Scripts\Puzzle2.cs" />
      <Compile Include="Assets\Scripts\TestAxis.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
