@@ -1,10 +1,8 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TestAxis.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\basic_bullet_mover.cs">
     <Files>
-      <File FileName="Assets/Scripts/CollisionDetection.cs" Line="20" Column="4" />
-      <File FileName="Assets/Scripts/Puzzle2.cs" Line="20" Column="4" />
-      <File FileName="Assets/Scripts/TestAxis.cs" Line="49" Column="79" />
+      <File FileName="Assets\Scripts\basic_bullet_mover.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
