@@ -28,3 +28,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.meta
+Invasion 1945 Template/Library/metadata/*
+*.info
+*.backup
+Invasion 1945 Template/Temp/UnityLockfile
