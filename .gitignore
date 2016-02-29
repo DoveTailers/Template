@@ -32,4 +32,9 @@ sysinfo.txt
 Invasion 1945 Template/Library/metadata/*
 *.info
 *.backup
+
+# Artem's additions, automatic changes created after opening up a fresh copy for the first time
 Invasion 1945 Template/Temp/UnityLockfile
+*.xml
+*.mdb
+
