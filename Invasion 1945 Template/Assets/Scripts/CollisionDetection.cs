@@ -3,38 +3,34 @@ using System.Collections;
 
 public class CollisionDetection : MonoBehaviour {
 
-	protected static bool reverse = false;
+	public static bool reverse = false;
+	public static bool collision = false;
+	public GameObject Explosion;
+
 
 	// Use this for initialization
 	void Start () {
-	
+		reverse = false;
+		collision = false;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnTriggerEnter(Collider collider) {
+		if (collider.gameObject.CompareTag ("Coin")) {
+			Destroy (collider.gameObject);
+			reverse = true;
+		}
+
 	}
 
-	void OnCollisionEnter2D(Collision2D collider) {
-		resetValues ();
-		Application.LoadLevel (Application.loadedLevel);
-	}
-
-	void OnTriggerEnter2D(Collider2D collider) {
-		Debug.Log ("GOT COIN");
-		Destroy (collider.gameObject);
-
-		reverse = true;
-
-
-
-		/*
-		innerCircleRotationSpeed *= -1;
-		outerCircleRotationSpeed *= -1;
-		*/
+	void OnCollisionEnter(Collision collider) {
+		if (!(collider.gameObject.CompareTag ("Maze")) ) {
+			Instantiate(Explosion, this.gameObject.transform.position, Quaternion.identity);
+			collision = true;
+		}
 	}
 
 	void resetValues() {
-		reverse = false;
+		
 	}
 }
