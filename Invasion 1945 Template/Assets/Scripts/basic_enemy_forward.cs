@@ -7,6 +7,6 @@ public class basic_enemy_forward : MonoBehaviour {
 	void Start () {
 		Rigidbody2D rb;
 		rb = gameObject.GetComponent<Rigidbody2D> ();
-		rb.velocity = transform.up.normalized*speed;
+		rb.velocity = transform.up.normalized*-speed;
 	}
 }

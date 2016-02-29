@@ -3,13 +3,16 @@ using System.Collections;
 
 public class DestoryByContact : MonoBehaviour {
 
-	void OnTriggerEnter2D(Collider2D other) 
+    public GameObject explosion;
+    void OnTriggerEnter2D(Collider2D other) 
 	{
 		if (other.tag == "Boundary")
 		{
 			return;
 		}
-		Destroy(other.gameObject);
-		Destroy(gameObject);
+        Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(other.gameObject);
+        Destroy(gameObject);
+
 	}
 }
