@@ -5,12 +5,13 @@ public class GravityScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 	}
 	
 	// Update is called once per frame
 	void OnTriggerStay (Collider player) {
+		Debug.Log ("approaching trigger");
 		if (player.gameObject.CompareTag ("Player")) {
+			
 			Rigidbody spaceShipRigidBody = player.gameObject.GetComponent<Rigidbody>();
 			var direction = -(spaceShipRigidBody.transform.position - gameObject.transform.position).normalized;
 //			direction = new Vector3 ((1 / direction.x), (1 / direction.y), direction.z);

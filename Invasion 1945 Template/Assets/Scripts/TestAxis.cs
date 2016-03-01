@@ -12,9 +12,11 @@ public class TestAxis : MonoBehaviour {
 	public Boundary boundary;
 	public GameObject camera;
 	private Vector3 velocity = Vector3.zero;
-
+	public GameObject BlackHole;
 	private float initialCameraPosYMin;
-
+	private Vector3 initialCameraPos;
+	private float camHeight;
+	bool level2;
 	private GUIStyle myGUIStyle1 = new GUIStyle();
 
 	void OnGUI() {
@@ -27,6 +29,9 @@ public class TestAxis : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		initialCameraPosYMin = camera.transform.position.y;
+		initialCameraPos = camera.transform.position;
+		camHeight = Camera.main.orthographicSize * 2f;
+		level2 = false;
 	}
 	
 	// Update is called once per frame
@@ -34,14 +39,13 @@ public class TestAxis : MonoBehaviour {
 		float moveHorizontal = Input.GetAxisRaw("Horizontal");
 		float moveVertical = Input.GetAxisRaw("Vertical");
 
-
 		Vector3 movement = new Vector3(moveHorizontal, moveVertical);
 
 		Rigidbody spaceShipRigidBody = GetComponent<Rigidbody>();
 
 		spaceShipRigidBody.velocity = movement * speed;
 
-		if (!CollisionDetection.reverse) {
+		if (!CollisionDetection.reverse || level2) {
 			spaceShipRigidBody.position = new Vector3 (
 				Mathf.Clamp (spaceShipRigidBody.position.x, boundary.xMin, boundary.xMax),
 				Mathf.Clamp (spaceShipRigidBody.position.y, boundary.yMin, boundary.yMax),
@@ -59,8 +63,7 @@ public class TestAxis : MonoBehaviour {
 			Mathf.Abs(spaceShipRigidBody.position.x - camera.transform.position.x) >= 2f) 
 		{
 			
-
-			if(CollisionDetection.reverse) {
+			if(CollisionDetection.reverse && (!level2)) {
 				Vector3 targetPosition = new Vector3 (camera.transform.position.x, spaceShipRigidBody.position.y, camera.transform.position.z);
 				camera.transform.position = Vector3.Slerp (camera.transform.position, targetPosition, Time.deltaTime * 1.8f);
 				camera.transform.position = new Vector3 (
@@ -69,12 +72,24 @@ public class TestAxis : MonoBehaviour {
 					camera.transform.position.z
 				);
 
+				// Code to clamp position of player and camera for next puzzle
+				if (initialCameraPosYMin >= camHeight) {
+					if (GameObject.FindGameObjectWithTag ("BlackHole") == null) {
+						Instantiate (BlackHole, new Vector3 (-9.0f, spaceShipRigidBody.position.y, 0.0f), Quaternion.identity);
+						Instantiate (BlackHole, new Vector3 (9.0f, spaceShipRigidBody.position.y - 5.0f, 0.0f), Quaternion.identity);
+						boundary.yMin = camera.transform.position.y - (camHeight / 3.5f) + GetComponent<Renderer> ().bounds.size.y;
+						boundary.yMax = camera.transform.position.y + (camHeight / 1.5f) - GetComponent<Renderer> ().bounds.size.y;
+						level2 = true;
+					}
+				}
 				initialCameraPosYMin = camera.transform.position.y;
 			}
-//			camera.transform.position = Vector3.Slerp (camera.transform.position, targetPosition, Time.deltaTime * 1.8f);
-
+			if (level2) {
+				Vector3 targetPosition = new Vector3 (camera.transform.position.x, 
+					initialCameraPosYMin + camHeight/4, 
+					camera.transform.position.z);
+				camera.transform.position = Vector3.Slerp (camera.transform.position, targetPosition, Time.deltaTime * 1.5f);
+			}
 		}
-
-
 	}
 }
