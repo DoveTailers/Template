@@ -15,3 +15,16 @@ Scene transition / end of round / story cutscenes
 
 main menu / game over / scene transitions
 - zero gravity
+
+
+
+
+SOURCES
+
+	MUSIC:
+	
+	SFX:
+	8 bit SFX 01 - shooting game (lite)
+	Casual Free Game SFX Pack
+	Sci-fi SFX
+	SciFi UI Sound FX
