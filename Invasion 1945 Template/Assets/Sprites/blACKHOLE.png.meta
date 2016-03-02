@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: 5b0fe942cc8d14d92997e54f9126a85c
+timeCreated: 1456615801
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: blACKHOLE_0
+    21300002: blACKHOLE_1
+    21300004: blACKHOLE_2
+    21300006: blACKHOLE_3
+    21300008: blACKHOLE_4
+    21300010: blACKHOLE_5
+    21300012: blACKHOLE_6
+    21300014: blACKHOLE_7
+    21300016: blACKHOLE_8
+    21300018: blACKHOLE_9
+    21300020: blACKHOLE_10
+    21300022: blACKHOLE_11
+    21300024: blACKHOLE_12
+    21300026: blACKHOLE_13
+    21300028: blACKHOLE_14
+    21300030: blACKHOLE_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: blACKHOLE_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 315
+        width: 96
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 51.5}
+        - {x: -47, y: 32.5}
+        - {x: -48, y: 26.5}
+        - {x: -48, y: -25.5}
+        - {x: -34, y: -51.5}
+        - {x: 39, y: -51.5}
+        - {x: 48, y: -29.5}
+        - {x: 48, y: 33.5}
+        - {x: 30, y: 51.5}
+    - name: blACKHOLE_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 314
+        width: 93
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 51.5}
+        - {x: -46.5, y: 30.5}
+        - {x: -46.5, y: -50.5}
+        - {x: -41.5, y: -51.5}
+        - {x: 46.5, y: -51.5}
+        - {x: 46.5, y: 33.5}
+        - {x: 40.5, y: 51.5}
+    - name: blACKHOLE_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 313
+        width: 96
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 52.5}
+        - {x: -24, y: 52.5}
+        - {x: -48, y: 28.5}
+        - {x: -48, y: -47.5}
+        - {x: -47, y: -52.5}
+        - {x: 33, y: -52.5}
+        - {x: 48, y: -47.5}
+        - {x: 48, y: 27.5}
+        - {x: 35, y: 50.5}
+    - name: blACKHOLE_3
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 314
+        width: 97
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.5, y: 51}
+        - {x: -46.5, y: 33}
+        - {x: -48.5, y: 23}
+        - {x: -48.5, y: -29}
+        - {x: -35.5, y: -51}
+        - {x: 38.5, y: -51}
+        - {x: 48.5, y: -29}
+        - {x: 48.5, y: 41}
+        - {x: 40.5, y: 51}
+    - name: blACKHOLE_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 211
+        width: 96
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 51.5}
+        - {x: -47, y: 32.5}
+        - {x: -48, y: 26.5}
+        - {x: -48, y: -25.5}
+        - {x: -34, y: -51.5}
+        - {x: 39, y: -51.5}
+        - {x: 48, y: -29.5}
+        - {x: 48, y: 33.5}
+        - {x: 30, y: 51.5}
+    - name: blACKHOLE_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 210
+        width: 95
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 52.5}
+        - {x: -33.5, y: 48.5}
+        - {x: -47.5, y: 22.5}
+        - {x: -47.5, y: -32.5}
+        - {x: -27.5, y: -52.5}
+        - {x: 22.5, y: -52.5}
+        - {x: 47.5, y: -30.5}
+        - {x: 47.5, y: 36.5}
+        - {x: 24.5, y: 52.5}
+    - name: blACKHOLE_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 210
+        width: 92
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: 51}
+        - {x: -44, y: 35}
+        - {x: -46, y: 26}
+        - {x: -46, y: -35}
+        - {x: -29, y: -51}
+        - {x: 26, y: -51}
+        - {x: 46, y: -26}
+        - {x: 46, y: 47}
+        - {x: 34, y: 51}
+    - name: blACKHOLE_7
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 208
+        width: 93
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 52}
+        - {x: -46.5, y: 46}
+        - {x: -46.5, y: -48}
+        - {x: -35.5, y: -52}
+        - {x: 28.5, y: -52}
+        - {x: 34.5, y: -51}
+        - {x: 46.5, y: -27}
+        - {x: 46.5, y: 33}
+        - {x: 27.5, y: 52}
+    - name: blACKHOLE_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 105
+        width: 96
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: 52.5}
+        - {x: -38, y: 52.5}
+        - {x: -48, y: 32.5}
+        - {x: -48, y: -20.5}
+        - {x: -40, y: -33.5}
+        - {x: -26, y: -47.5}
+        - {x: -21, y: -50.5}
+        - {x: -13, y: -52.5}
+        - {x: 16, y: -52.5}
+        - {x: 31, y: -47.5}
+        - {x: 48, y: -23.5}
+        - {x: 48, y: 46.5}
+    - name: blACKHOLE_9
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 106
+        width: 91
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 51}
+        - {x: -45.5, y: 39}
+        - {x: -45.5, y: -33}
+        - {x: -44.5, y: -35}
+        - {x: -23.5, y: -51}
+        - {x: 35.5, y: -51}
+        - {x: 45.5, y: -27}
+        - {x: 45.5, y: 40}
+        - {x: 34.5, y: 51}
+    - name: blACKHOLE_10
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 107
+        width: 94
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: 50.5}
+        - {x: -47, y: 47.5}
+        - {x: -47, y: -46.5}
+        - {x: -39, y: -50.5}
+        - {x: 33, y: -50.5}
+        - {x: 47, y: -47.5}
+        - {x: 47, y: 49.5}
+        - {x: 40, y: 50.5}
+    - name: blACKHOLE_11
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 102
+        width: 94
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47, y: 53.5}
+        - {x: -47, y: -53.5}
+        - {x: 35, y: -53.5}
+        - {x: 47, y: -26.5}
+        - {x: 47, y: 46.5}
+        - {x: 41, y: 53.5}
+    - name: blACKHOLE_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 97
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.5, y: 52}
+        - {x: -48.5, y: 34}
+        - {x: -48.5, y: -35}
+        - {x: -21.5, y: -49}
+        - {x: -16.5, y: -51}
+        - {x: -12.5, y: -52}
+        - {x: 27.5, y: -52}
+        - {x: 48.5, y: -34}
+        - {x: 48.5, y: 26}
+        - {x: 39.5, y: 52}
+    - name: blACKHOLE_13
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2
+        width: 94
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 52}
+        - {x: -43, y: 52}
+        - {x: -47, y: 35}
+        - {x: -47, y: -40}
+        - {x: -36, y: -52}
+        - {x: 30, y: -52}
+        - {x: 46, y: -35}
+        - {x: 47, y: -30}
+        - {x: 47, y: 27}
+    - name: blACKHOLE_14
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1
+        width: 94
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 53}
+        - {x: -47, y: 33}
+        - {x: -47, y: -40}
+        - {x: -32, y: -53}
+        - {x: 45, y: -53}
+        - {x: 47, y: -47}
+        - {x: 47, y: 44}
+        - {x: 27, y: 53}
+    - name: blACKHOLE_15
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 2
+        width: 94
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: 50}
+        - {x: -44, y: 38}
+        - {x: -47, y: 24}
+        - {x: -47, y: -37}
+        - {x: -42, y: -50}
+        - {x: 39, y: -50}
+        - {x: 47, y: -34}
+        - {x: 47, y: 47}
+        - {x: 34, y: 50}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
