@@ -1,16 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\InfiniteTerrain.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\LoadOnClick.cs">
     <Files>
-      <File FileName="Assets\Scripts\InfiniteTerrain.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CollisionDetection.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AsteroidMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Puzzle2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TestAxis.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Puzzle1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GravityScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Collisions.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="5" Column="23" NotebookId="1" />
+      <File FileName="Assets\Menu\Scripts\LoadOnClick.cs" Line="12" Column="1" NotebookId="1" />
     </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="960" Y="0" Width="1085" Height="1002">
+        <Files>
+          <File FileName="Assets\Scripts\TestAxis.cs" Line="5" Column="22" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
