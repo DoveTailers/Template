@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\Puzzle1.cs" />
      <Compile Include="Assets\Scripts\Puzzle2.cs" />
      <Compile Include="Assets\Scripts\TestAxis.cs" />
+     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\basic_bullet_mover.cs" />
      <Compile Include="Assets\Scripts\basic_enemy_forward.cs" />
      <Compile Include="Assets\Scripts\basic_homingMissle_mover.cs" />
