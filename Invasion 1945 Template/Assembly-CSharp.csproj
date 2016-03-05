@@ -64,7 +64,9 @@
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
      <Compile Include="Assets\Menu\Scripts\LoadOnClick.cs" />
      <Compile Include="Assets\Menu\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Menu\Scripts\MenuControls.cs" />
      <Compile Include="Assets\Menu\Scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Menu\Scripts\UIControl.cs" />
      <Compile Include="Assets\Scripts\AsteroidMovement.cs" />
      <Compile Include="Assets\Scripts\CollisionDetection.cs" />
      <Compile Include="Assets\Scripts\Collisions.cs" />
