@@ -1,2 +1,12 @@
-Invasion 1945 Template/ProjectSettings/ProjectVersion.txt
+Invasion 1945 Template/Temp/
+Invasion 1945 Template/Library/
+Invasion 1945 Template/Obj/
+ 
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.userprefs
+*.DS_store
+
 Invasion 1945 Template/Temp/UnityLockfile
