@@ -13,10 +13,12 @@ public class TestAxis : MonoBehaviour {
 	public GameObject camera;
 	private Vector3 velocity = Vector3.zero;
 	public GameObject BlackHole;
+	public GameObject SpawnAsteroidScript;
 	private float initialCameraPosYMin;
 	private Vector3 initialCameraPos;
 	private float camHeight;
 	bool level2;
+	bool asteroidsSpawned;
 	private GUIStyle myGUIStyle1 = new GUIStyle();
 
 	void OnGUI() {
@@ -32,6 +34,7 @@ public class TestAxis : MonoBehaviour {
 		initialCameraPos = camera.transform.position;
 		camHeight = Camera.main.orthographicSize * 2f;
 		level2 = false;
+		
 	}
 	
 	// Update is called once per frame
@@ -77,6 +80,11 @@ public class TestAxis : MonoBehaviour {
 					if (GameObject.FindGameObjectWithTag ("BlackHole") == null) {
 						Instantiate (BlackHole, new Vector3 (-9.0f, spaceShipRigidBody.position.y, 0.0f), Quaternion.identity);
 						Instantiate (BlackHole, new Vector3 (9.0f, spaceShipRigidBody.position.y - 5.0f, 0.0f), Quaternion.identity);
+						if (!asteroidsSpawned) {
+							Instantiate (SpawnAsteroidScript);
+							asteroidsSpawned = true;
+						}
+
 						boundary.yMin = camera.transform.position.y - (camHeight / 3.5f) + GetComponent<Renderer> ().bounds.size.y;
 						boundary.yMax = camera.transform.position.y + (camHeight / 1.5f) - GetComponent<Renderer> ().bounds.size.y;
 						level2 = true;
@@ -89,7 +97,10 @@ public class TestAxis : MonoBehaviour {
 					initialCameraPosYMin + camHeight/4, 
 					camera.transform.position.z);
 				camera.transform.position = Vector3.Slerp (camera.transform.position, targetPosition, Time.deltaTime * 1.5f);
+
 			}
 		}
 	}
+
+
 }
