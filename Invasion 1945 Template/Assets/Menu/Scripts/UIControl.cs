@@ -7,7 +7,6 @@ public class UIControl : MonoBehaviour {
 	//UICanvas access
 	public GameObject UICanvas;
 
-
 	//weapon setup
 	public Transform[] allWeapons;
 	public int selectedWeapon;
@@ -16,7 +15,6 @@ public class UIControl : MonoBehaviour {
 	// public float initialValue; move as part of stats bar 
 	public GameObject healthBar;
 	// public GameObject ArmourBar; for later
-
 
 	// Update is called once per frame
 	// Use J,K to switch between weapons

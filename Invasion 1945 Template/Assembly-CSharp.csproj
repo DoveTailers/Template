@@ -67,7 +67,6 @@
      <Compile Include="Assets\Menu\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Menu\Scripts\MusicController.cs" />
      <Compile Include="Assets\Menu\Scripts\PauseMenu.cs" />
-     <Compile Include="Assets\Menu\Scripts\SettingsUI.cs" />
      <Compile Include="Assets\Menu\Scripts\UIControl.cs" />
      <Compile Include="Assets\Menu\Scripts\VolumeControl.cs" />
      <Compile Include="Assets\Scripts\AsteroidMovement.cs" />

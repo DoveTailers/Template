@@ -6,22 +6,32 @@ public class PauseMenu : MonoBehaviour {
 
 	public bool isPaused;
 
-	public GameObject pauseMenuCanvas;
+	private GameObject pauseMenuCanvas;
+	private Scene thisScene;
+
+	void Awake (){
+		// initiate variables
+		pauseMenuCanvas = GameObject.Find ("PauseCanvas");
+		thisScene = SceneManager.GetActiveScene ();
+		isPaused = false;
+	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if (isPaused) {
-			Time.timeScale = 0f;
-			pauseMenuCanvas.SetActive (true);
-		} else {
-			pauseMenuCanvas.SetActive (false);
-			Time.timeScale = 1f;
-		}
-
+		// pause the game
 		if (Input.GetKeyUp (KeyCode.Escape)) 
 		{
 			isPaused = !isPaused;
+		}
+		if (isPaused) {
+		// freeze the game, activate pause menu
+			Time.timeScale = 0f;
+			pauseMenuCanvas.SetActive (true);
+		} else {
+		// unpause and unfreeze
+			pauseMenuCanvas.SetActive (false);
+			Time.timeScale = 1f;
 		}
 	}
 
@@ -32,11 +42,21 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Restart ()
 	{
-		SceneManager.LoadScene (Application.loadedLevelName);
+		SceneManager.LoadScene (thisScene.name);
 	}
 
 	public void Quit ()
 	{
 		SceneManager.LoadScene ("mainmenub");
+	}
+
+	public void Save (){
+		// save needed variables to PlayerPrefs
+		print ("nothing here yet");
+	}
+
+	public void Load (){
+		// loaded needed PlayerPrefs
+		print ("nothing here yet");
 	}
 }

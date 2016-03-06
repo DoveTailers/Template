@@ -7,7 +7,6 @@ public class VolumeControl : MonoBehaviour {
 			// update Mute status
 		if (this.name == "MuteToggle") {
 			if (GamePreferences.GetMusicState () == 0) {
-				print (GamePreferences.GetMusicState ());
 				this.GetComponent<UnityEngine.UI.Toggle> ().isOn = false;
 			}
 		} else if (this.name == "VolumeSlider") {
@@ -32,6 +31,7 @@ public class VolumeControl : MonoBehaviour {
 		}
 	}
 
+	// set volume through MusicController, adjust UI value
 	public void SetVolume (){
 		float newVolume = this.GetComponent <UnityEngine.UI.Slider> ().value;
 		this.GetComponentInChildren <UnityEngine.UI.Text>().text = newVolume.ToString();
