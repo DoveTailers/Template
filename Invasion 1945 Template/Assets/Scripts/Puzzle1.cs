@@ -15,7 +15,7 @@ public class Puzzle1 : CollisionDetection {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (reverse) {
+		if (puzzle1Complete) {
 			smallCircle.MoveRotation (smallCircle.rotation + innerCircleRotationSpeed * Time.fixedDeltaTime * -1);
 			largeCircle.MoveRotation (largeCircle.rotation + outerCircleRotationSpeed * Time.fixedDeltaTime * -1);
 		} else {

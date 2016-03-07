@@ -52,7 +52,7 @@ public class InfiniteTerrain : MonoBehaviour
 		}
 
 
-		if (playerTerrain != _bgGrid[1])
+		if (playerTerrain == _bgGrid[2])
 		{
 			GameObject[] newBgGrid = new GameObject[3];
 			//Destroy (_bgGrid[0]);

@@ -3,14 +3,15 @@ using System.Collections;
 
 public class CollisionDetection : MonoBehaviour {
 
-	public static bool reverse = false;
+	public static bool puzzle1Complete = false;
+	
 	public static bool collision = false;
 	public GameObject Explosion;
 
 
 	// Use this for initialization
 	void Start () {
-		reverse = false;
+		puzzle1Complete = false;
 		collision = false;
 	}
 	
@@ -18,7 +19,8 @@ public class CollisionDetection : MonoBehaviour {
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.CompareTag ("Coin")) {
 			Destroy (collider.gameObject);
-			reverse = true;
+			puzzle1Complete = true;
+			TestAxis.betweenLevels = true;
 		}
 
 	}
@@ -28,9 +30,5 @@ public class CollisionDetection : MonoBehaviour {
 			Instantiate(Explosion, this.gameObject.transform.position, Quaternion.identity);
 			collision = true;
 		}
-	}
-
-	void resetValues() {
-		
 	}
 }

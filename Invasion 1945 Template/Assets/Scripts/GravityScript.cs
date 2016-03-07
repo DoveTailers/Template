@@ -8,14 +8,17 @@ public class GravityScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void OnTriggerStay (Collider player) {
-		Debug.Log ("approaching trigger");
-		if (player.gameObject.CompareTag ("Player")) {
+	void OnTriggerStay (Collider collider) {
+		if (collider.gameObject.CompareTag ("Player") || collider.gameObject.CompareTag ("FlyingAsteroids")) {
 			
-			Rigidbody spaceShipRigidBody = player.gameObject.GetComponent<Rigidbody>();
-			var direction = -(spaceShipRigidBody.transform.position - gameObject.transform.position).normalized;
+			Rigidbody colliderRigidBody = collider.gameObject.GetComponent<Rigidbody>();
+			var direction = -(colliderRigidBody.transform.position - gameObject.transform.position).normalized;
 //			direction = new Vector3 ((1 / direction.x), (1 / direction.y), direction.z);
-			spaceShipRigidBody.AddForce(-(spaceShipRigidBody.transform.position - gameObject.transform.position).normalized * spaceShipRigidBody.mass * 2000.0F / (gameObject.transform.position - spaceShipRigidBody.transform.position).sqrMagnitude);
+			if (collider.gameObject.CompareTag ("Player")) {
+				colliderRigidBody.AddForce(-(colliderRigidBody.transform.position - gameObject.transform.position).normalized * colliderRigidBody.mass * 2000.0F / (gameObject.transform.position - colliderRigidBody.transform.position).sqrMagnitude);
+			} else if(collider.gameObject.CompareTag ("FlyingAsteroids")) {
+				colliderRigidBody.AddForce(-(colliderRigidBody.transform.position - gameObject.transform.position).normalized * colliderRigidBody.mass * 10.0F / (gameObject.transform.position - colliderRigidBody.transform.position).sqrMagnitude);
+			}
 
 			//spaceShipRigidBody.AddForce (direction * 100.0F);
 		}
