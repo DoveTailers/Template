@@ -3,11 +3,11 @@ using System.Collections;
 
 public class BlurControl : MonoBehaviour {
 	
-	float value = 20f; 
+	float value = 40f; 
 	
 	// Use this for initialization
 	void Start () {
-		value = 20.0f;
+		value = 40.0f;
 		this.transform.GetComponent<Renderer>().material.SetFloat("_blurSizeXY",value);
 	}
 	
@@ -16,7 +16,7 @@ public class BlurControl : MonoBehaviour {
 		if(Input.GetAxisRaw("Vertical") == 1)
 		{
 			//value = value + Time.deltaTime;
-			if (value>20f) value = 20f;
+			if (value>20f) value = 40f;
 			this.transform.GetComponent<Renderer>().material.SetFloat("_blurSizeXY",value);
 		}
 		else if(Input.GetAxisRaw("Horizontal") == 1)
