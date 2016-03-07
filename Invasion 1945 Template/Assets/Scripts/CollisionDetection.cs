@@ -27,7 +27,6 @@ public class CollisionDetection : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collider) {
 		if (!(collider.gameObject.CompareTag ("Maze")) ) {
-			Debug.Log ("collision");
 			Instantiate(Explosion, this.gameObject.transform.position, Quaternion.identity);
 			collision = true;
 		}

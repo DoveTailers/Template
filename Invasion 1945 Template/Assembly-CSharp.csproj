@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\EnemyGun.cs" />
      <Compile Include="Assets\Scripts\EnemyShoot.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\FlyingAsteroids.cs" />
      <Compile Include="Assets\Scripts\GameController_Wave.cs" />
      <Compile Include="Assets\Scripts\GravityScript.cs" />
      <Compile Include="Assets\Scripts\InfiniteTerrain.cs" />

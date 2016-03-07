@@ -84,15 +84,7 @@ public class TestAxis : MonoBehaviour {
 
 
 		}
-
-//			if (level2) {
-//				Vector3 targetPosition = new Vector3 (camera.transform.position.x, 
-//					initialCameraPosYMin + camHeight/4, 
-//					camera.transform.position.z);
-//				camera.transform.position = Vector3.Slerp (camera.transform.position, targetPosition, Time.deltaTime * 1.5f);
-//
-//			}
-		}
+	}
 		
 	public void playerClampScript() {
 		
