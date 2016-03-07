@@ -17,7 +17,6 @@ public class VolumeControl : MonoBehaviour {
 
 	//toggle mute by calling musiccontroller functions
 	public void toggleMute (bool playmusic){
-		
 		bool currState = MusicController.Instance.isMusicOn;
 
 		if (playmusic && !currState) {

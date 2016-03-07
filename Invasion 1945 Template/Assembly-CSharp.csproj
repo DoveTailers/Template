@@ -62,6 +62,7 @@
      <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSpray.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\DetonatorTest.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
+     <Compile Include="Assets\Menu\Scripts\GameController.cs" />
      <Compile Include="Assets\Menu\Scripts\GamePreferences.cs" />
      <Compile Include="Assets\Menu\Scripts\LoadOnClick.cs" />
      <Compile Include="Assets\Menu\Scripts\MainMenu.cs" />

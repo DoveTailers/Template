@@ -8,6 +8,7 @@ public class MusicController : MonoBehaviour {
 	// the current song (Audiosource)
 	public AudioSource currSong;
 	private GameObject musicPlayer;
+	private AudioClip[] allClips;
 	// for master volume contolls
 
 	// temp for now to turn off
@@ -40,8 +41,9 @@ public class MusicController : MonoBehaviour {
 
 	void Start (){
 		// initialized in GamePreferences
-		isMusicOn = GamePreferences.GetMusicState () == 1 ? true : false;
-		PlayMusic (isMusicOn);
+		isMusicOn = false;
+		bool play = GamePreferences.GetMusicState () == 1 ? true : false;
+		PlayMusic (play);
 	}
 
 	// **********  not needed in final build   *******
@@ -50,6 +52,9 @@ public class MusicController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha0)) {
 			isMusicOn = !isMusicOn;
 			PlayMusic (isMusicOn);
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha6)) {
+			SwitchSong ();
 		}
 	}
 	// ---------------------------------------------------------
@@ -76,5 +81,21 @@ public class MusicController : MonoBehaviour {
 			GamePreferences.SetVolumeState (amount);
 			AudioListener.volume = amount;
 		}
+	}
+
+	// see if the stage has a song, if it does, make it the current song. else the stage must be the menu and play default sound
+	// should be called from stage script, maybe game controller script
+	public void SwitchSong() {
+		try {
+			if (isMusicOn){
+				currSong.Stop();
+				isMusicOn = false;
+			}
+			currSong = GameObject.FindGameObjectWithTag ("StageSong").gameObject.GetComponent <AudioSource> ();
+		}catch {
+			currSong = musicPlayer.GetComponent <AudioSource> ();
+		}
+		bool play = GamePreferences.GetMusicState() == 1 ? true : false;
+		PlayMusic (play);
 	}
 }
