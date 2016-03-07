@@ -2,20 +2,19 @@
 using System.Collections;
 
 public class EnemySwerve : MonoBehaviour {
-	public float speed;
 	public Sprite right;
 	public Sprite left;
 	private Vector3 stageDimensions;
 	private float speed1;
 	private SpriteRenderer sr;
+	private float speed;
 	void Start () {
 		//Rigidbody2D rb;
 		stageDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0));
-		Debug.Log (stageDimensions.x);
+		speed = Random.Range (1.5f, 10f);
 		speed1 = speed;
 		sr = GetComponent<SpriteRenderer>();
 		int spawnDir = Random.Range (0, 2);
-		Debug.Log (spawnDir);
 		if (spawnDir == 1)
 			speed = -speed;
 		if (speed > 0) {

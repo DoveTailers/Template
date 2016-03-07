@@ -2,16 +2,16 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ScrollingBackground.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemySwerve.cs" Line="16" Column="39" />
-      <File FileName="Assets\Scripts\GravityScript.cs" Line="25" Column="2" />
-      <File FileName="Assets\Scripts\TestAxis.cs" Line="55" Column="22" />
-      <File FileName="Assets\Scripts\basic_enemy_forward.cs" Line="13" Column="1" />
-      <File FileName="Assets\Scripts\GravityScript2D.cs" Line="19" Column="145" />
+      <File FileName="Assets\Scripts\EnemySwerve.cs" Line="17" Column="32" />
+      <File FileName="Assets\Scripts\GravityScript2D.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="12" Column="13" />
-      <File FileName="Assets\Scripts\DestoryByContact.cs" Line="14" Column="37" />
-      <File FileName="Assets\Scripts\CollisionDetection2D.cs" Line="17" Column="2" />
-      <File FileName="Assets\Scripts\EnemySpawner.cs" Line="37" Column="8" />
+      <File FileName="Assets\Scripts\DestoryByContact.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CollisionDetection2D.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawner.cs" Line="55" Column="1" />
       <File FileName="Assets\Scripts\ScrollingBackground.cs" Line="17" Column="52" />
+      <File FileName="Assets\Scripts\EnemySpawnerX.cs" Line="30" Column="48" />
+      <File FileName="Assets\Scripts\basic_enemy_forward.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\basic_enemy_sideways.cs" Line="12" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
