@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour {
 
 	public GameObject EnemyShip;
-	float maxSpawnRateSecs = 5f;
+	public float maxSpawnRateSecs = 5f;
 	// Use this for initialization
 	void Start () {
 		Invoke ("SpawnEnemy", maxSpawnRateSecs);

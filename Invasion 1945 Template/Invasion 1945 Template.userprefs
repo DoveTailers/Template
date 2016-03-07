@@ -1,17 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\LoadOnClick.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ScrollingBackground.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="5" Column="23" NotebookId="1" />
-      <File FileName="Assets\Menu\Scripts\LoadOnClick.cs" Line="12" Column="1" NotebookId="1" />
+      <File FileName="Assets\Scripts\EnemySwerve.cs" Line="16" Column="39" />
+      <File FileName="Assets\Scripts\GravityScript.cs" Line="25" Column="2" />
+      <File FileName="Assets\Scripts\TestAxis.cs" Line="55" Column="22" />
+      <File FileName="Assets\Scripts\basic_enemy_forward.cs" Line="13" Column="1" />
+      <File FileName="Assets\Scripts\GravityScript2D.cs" Line="19" Column="145" />
+      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="12" Column="13" />
+      <File FileName="Assets\Scripts\DestoryByContact.cs" Line="14" Column="37" />
+      <File FileName="Assets\Scripts\CollisionDetection2D.cs" Line="17" Column="2" />
+      <File FileName="Assets\Scripts\EnemySpawner.cs" Line="37" Column="8" />
+      <File FileName="Assets\Scripts\ScrollingBackground.cs" Line="17" Column="52" />
     </Files>
-    <FloatingWindows>
-      <FloatingWindow WindowId="1" X="960" Y="0" Width="1085" Height="1002">
-        <Files>
-          <File FileName="Assets\Scripts\TestAxis.cs" Line="5" Column="22" />
-        </Files>
-      </FloatingWindow>
-    </FloatingWindows>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
