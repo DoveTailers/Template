@@ -66,6 +66,7 @@
      <Compile Include="Assets\Menu\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\AsteroidBoundary.cs" />
      <Compile Include="Assets\Scripts\AsteroidMovement.cs" />
+     <Compile Include="Assets\Scripts\BlurControl.cs" />
      <Compile Include="Assets\Scripts\BulletMovement3D.cs" />
      <Compile Include="Assets\Scripts\CollisionDetection.cs" />
      <Compile Include="Assets\Scripts\Collisions.cs" />
@@ -82,11 +83,14 @@
      <Compile Include="Assets\Scripts\Puzzle1.cs" />
      <Compile Include="Assets\Scripts\Puzzle2.cs" />
      <Compile Include="Assets\Scripts\PuzzleBullets.cs" />
+     <Compile Include="Assets\Scripts\RemoveStaleObjects.cs" />
      <Compile Include="Assets\Scripts\SpawnAsteroids.cs" />
      <Compile Include="Assets\Scripts\TestAxis.cs" />
      <Compile Include="Assets\Scripts\basic_bullet_mover.cs" />
      <Compile Include="Assets\Scripts\basic_enemy_forward.cs" />
      <Compile Include="Assets\Scripts\basic_homingMissle_mover.cs" />
+     <None Include="Assets\Shaders\WaterBlurFinal.shader" />
+     <None Include="Assets\Shaders\WaterBlurModified.shader" />
      <None Include="Assets\Small stones\Shader\Matte Shadow Mask.shader" />
      <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
  <Reference Include="UnityEngine.Networking">

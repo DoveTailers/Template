@@ -1,12 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SpawnAsteroids.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Shaders/WaterBlurFinal.shader">
     <Files>
-      <File FileName="Assets/Scripts/AsteroidMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AsteroidMovement.cs" Line="14" Column="55" />
       <File FileName="Assets/Scripts/AsteroidBoundary.cs" Line="7" Column="3" />
       <File FileName="Assets/Scripts/OuterBoundDestory_Wave.cs" Line="6" Column="2" />
-      <File FileName="Assets/Scripts/TestAxis.cs" Line="82" Column="25" />
-      <File FileName="Assets/Scripts/SpawnAsteroids.cs" Line="31" Column="12" />
+      <File FileName="Assets/Scripts/TestAxis.cs" Line="57" Column="24" />
+      <File FileName="Assets/Scripts/CollisionDetection.cs" Line="34" Column="3" />
+      <File FileName="Assets/Scripts/SpawnAsteroids.cs" Line="26" Column="34" />
+      <File FileName="Assets/Scripts/GravityScript.cs" Line="14" Column="31" />
+      <File FileName="Assets/Scripts/RemoveStaleObjects.cs" Line="23" Column="101" />
+      <File FileName="Assets/Scripts/InfiniteTerrain.cs" Line="55" Column="33" />
+      <File FileName="Assets/Scripts/BlurControl.cs" Line="10" Column="12" />
+      <File FileName="Assets/Shaders/WaterBlurFinal.shader" Line="1" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

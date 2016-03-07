@@ -13,7 +13,7 @@ public class Puzzle2 : CollisionDetection {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (reverse) {
+		if (puzzle1Complete) {
 			fanObstacle.MoveRotation (fanObstacle.rotation + fanRotationSpeed * Time.fixedDeltaTime * -1);
 		} else {
 			fanObstacle.MoveRotation (fanObstacle.rotation + fanRotationSpeed * Time.fixedDeltaTime);
