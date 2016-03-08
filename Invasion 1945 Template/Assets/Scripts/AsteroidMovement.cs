@@ -25,11 +25,16 @@ public class AsteroidMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		foreach (GameObject asteroid in OuterAsteroids) {
-			asteroid.transform.RotateAround (Vector3.zero, new Vector3(0, 0, 1), Time.deltaTime * 1.1f);
+			if (asteroid != null) {
+				asteroid.transform.RotateAround (Vector3.zero, new Vector3(0, 0, 1), Time.deltaTime * 1.1f);
+			}
 		}
 
 		foreach (GameObject asteroid in InnerAsteroids) {
-			asteroid.transform.RotateAround (Vector3.zero, new Vector3(0, 0, 1), Time.deltaTime * 1.9f);
+			if (asteroid != null) {
+				asteroid.transform.RotateAround (Vector3.zero, new Vector3(0, 0, 1), Time.deltaTime * 1.9f);
+			}
+
 		}
 	}
 }

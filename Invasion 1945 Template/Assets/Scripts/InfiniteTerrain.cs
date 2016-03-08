@@ -34,52 +34,55 @@ public class InfiniteTerrain : MonoBehaviour
 
 	void Update ()
 	{
-		Vector3 playerPosition = new Vector3(PlayerObject.transform.position.x, PlayerObject.transform.position.y, PlayerObject.transform.position.z);
-		GameObject playerTerrain = null;
+		if (PlayerObject != null) {
+			Vector3 playerPosition = new Vector3(PlayerObject.transform.position.x, PlayerObject.transform.position.y, PlayerObject.transform.position.z);
+			GameObject playerTerrain = null;
 
-		//Debug.Log (playerPosition.y + " " + _bgGrid[0].transform.position.y + 2*_bgGrid[0].GetComponent<SpriteRenderer>().bounds.extents.y);
+			//Debug.Log (playerPosition.y + " " + _bgGrid[0].transform.position.y + 2*_bgGrid[0].GetComponent<SpriteRenderer>().bounds.extents.y);
 
-		if (playerPosition.y >= (_bgGrid[1].transform.position.y - _bgGrid[1].GetComponent<SpriteRenderer>().bounds.extents.y) && 
-			playerPosition.y <=  (_bgGrid[1].transform.position.y + _bgGrid[1].GetComponent<SpriteRenderer>().bounds.extents.y))
-		{
-			playerTerrain = _bgGrid[1];
-		}
+			if (playerPosition.y >= (_bgGrid[1].transform.position.y - _bgGrid[1].GetComponent<SpriteRenderer>().bounds.extents.y) && 
+				playerPosition.y <=  (_bgGrid[1].transform.position.y + _bgGrid[1].GetComponent<SpriteRenderer>().bounds.extents.y))
+			{
+				playerTerrain = _bgGrid[1];
+			}
 
-		if (playerPosition.y >= (_bgGrid[2].transform.position.y - _bgGrid[2].GetComponent<SpriteRenderer>().bounds.extents.y) && 
-			playerPosition.y <=  (_bgGrid[2].transform.position.y + _bgGrid[2].GetComponent<SpriteRenderer>().bounds.extents.y))
-		{
-			playerTerrain = _bgGrid[2];
-		}
-
-
-		if (playerTerrain == _bgGrid[2])
-		{
-			GameObject[] newBgGrid = new GameObject[3];
-			//Destroy (_bgGrid[0]);
-			//Destroy (_bgGrid[1]);
-			//_bgGrid[0] = (GameObject)Instantiate (Resources.Load("space2"), _bgGrid[1].transform.position, _bgGrid[1].transform.rotation);
-			//_bgGrid[1] = (GameObject)Instantiate (Resources.Load("space2"), _bgGrid[1].transform.position, _bgGrid[1].transform.rotation);
+			if (playerPosition.y >= (_bgGrid[2].transform.position.y - _bgGrid[2].GetComponent<SpriteRenderer>().bounds.extents.y) && 
+				playerPosition.y <=  (_bgGrid[2].transform.position.y + _bgGrid[2].GetComponent<SpriteRenderer>().bounds.extents.y))
+			{
+				playerTerrain = _bgGrid[2];
+			}
 
 
-			newBgGrid[0] = _bgGrid[1];
-			newBgGrid[1] = _bgGrid[2];
-			newBgGrid[2] = _bgGrid[0];
-			_bgGrid = newBgGrid;
+			if (playerTerrain == _bgGrid[2])
+			{
+				GameObject[] newBgGrid = new GameObject[3];
+				//Destroy (_bgGrid[0]);
+				//Destroy (_bgGrid[1]);
+				//_bgGrid[0] = (GameObject)Instantiate (Resources.Load("space2"), _bgGrid[1].transform.position, _bgGrid[1].transform.rotation);
+				//_bgGrid[1] = (GameObject)Instantiate (Resources.Load("space2"), _bgGrid[1].transform.position, _bgGrid[1].transform.rotation);
 
-			//Destroy (_bgGrid[1]);
-			//newBgGrid[1] = _bgGrid[1];
-			//_bgGrid[0].transform.position = new Vector3(_bgGrid[0].transform.position.y + 10, _bgGrid[0].transform.position.x, _bgGrid[0].transform.position.z);
-			//_bgGrid [0] = _bgGrid [1];
-			//_bgGrid [1] = _bgGrid [0];
 
-			/*
+				newBgGrid[0] = _bgGrid[1];
+				newBgGrid[1] = _bgGrid[2];
+				newBgGrid[2] = _bgGrid[0];
+				_bgGrid = newBgGrid;
+
+				//Destroy (_bgGrid[1]);
+				//newBgGrid[1] = _bgGrid[1];
+				//_bgGrid[0].transform.position = new Vector3(_bgGrid[0].transform.position.y + 10, _bgGrid[0].transform.position.x, _bgGrid[0].transform.position.z);
+				//_bgGrid [0] = _bgGrid [1];
+				//_bgGrid [1] = _bgGrid [0];
+
+				/*
 			_bgGrid[0].transform.position = new Vector3(
 				_bgGrid[1].transform.position.x,
 				_bgGrid[1].transform.position.y + 2*_bgGrid[0].GetComponent<SpriteRenderer>().bounds.extents.y,
 				_bgGrid[1].transform.position.z);
 			*/
-			UpdateTerrainPositionsAndNeighbors();
+				UpdateTerrainPositionsAndNeighbors();
+			}
 		}
+
 
 	}
 
