@@ -103,13 +103,13 @@ public class GameController : MonoBehaviour {
 		//PlayerPrefs.SetString ("Gun5", "2");
 	}
 
-//	private void PlayNoWave (){
-//		print (wave1.enabled.Equals (true));
-//		if (wave1.enabled == true) {
-//			wave1.enabled = false;
-//		}
-//		if (wave2.enabled == true) {
-//			wave2.enabled = false;
-//		}
-//	}
+	private void PlayNoWave (){
+		print (wave1.enabled.Equals (true));
+		if (wave1.enabled == true) {
+			wave1.enabled = false;
+		}
+		if (wave2.enabled == true) {
+			wave2.enabled = false;
+		}
+	}
 }
