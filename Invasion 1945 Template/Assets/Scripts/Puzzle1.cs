@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class Puzzle1 : CollisionDetection {
+public class Puzzle1 : MonoBehaviour {
 
-	public Rigidbody2D smallCircle;
-	public Rigidbody2D largeCircle;
-	public float innerCircleRotationSpeed;
-	public float outerCircleRotationSpeed;
-
+	public float level2Timer = 30.0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,15 +12,14 @@ public class Puzzle1 : CollisionDetection {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (puzzle1Complete) {
-			smallCircle.MoveRotation (smallCircle.rotation + innerCircleRotationSpeed * Time.fixedDeltaTime * -1);
-			largeCircle.MoveRotation (largeCircle.rotation + outerCircleRotationSpeed * Time.fixedDeltaTime * -1);
-		} else {
-			smallCircle.MoveRotation (smallCircle.rotation + innerCircleRotationSpeed * Time.fixedDeltaTime);
-			largeCircle.MoveRotation (largeCircle.rotation + outerCircleRotationSpeed * Time.fixedDeltaTime);
+		if (TestAxis.level2) {
+			
+			level2Timer -= Time.deltaTime; 
+			if (level2Timer < 0.0f) {
+				
+				SceneManager.LoadScene ("Wave2");
+			}
 		}
-
-
 	}
 
 }

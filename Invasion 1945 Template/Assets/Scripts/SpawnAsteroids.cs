@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpawnAsteroids : MonoBehaviour {
 	public Vector3 spawnValues;
-	public int hazardCount;
+	public float hazardCount;
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
@@ -25,7 +25,7 @@ public class SpawnAsteroids : MonoBehaviour {
 		{
 			if(TestAxis.blackHoleCount < 8) {
 				Debug.Log ("doubled flying astroids: " + hazardCount);
-				hazardCount *= 2;
+				hazardCount *= 1.5f;
 			}
 			for (int i = 0; i < hazardCount; i++)
 			{
