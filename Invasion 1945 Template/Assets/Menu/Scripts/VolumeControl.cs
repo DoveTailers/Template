@@ -21,11 +21,11 @@ public class VolumeControl : MonoBehaviour {
 
 		if (playmusic && !currState) {
 			
-			MusicController.Instance.PlayMusic (playmusic);
+			MusicController.Instance.MuteSong (playmusic);
 
 		} else if (!playmusic && currState) {
 			
-			MusicController.Instance.PlayMusic (playmusic);
+			MusicController.Instance.MuteSong (playmusic);
 
 		}
 	}

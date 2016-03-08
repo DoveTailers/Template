@@ -7,6 +7,7 @@ public class MusicController : MonoBehaviour {
 	// public AudioSource nextSong; -- create component and assign later
 	// the current song (Audiosource)
 	public AudioSource currSong;
+	public AudioSource defaultSong;
 	private GameObject musicPlayer;
 	private AudioClip[] allClips;
 
@@ -35,7 +36,8 @@ public class MusicController : MonoBehaviour {
 
 		//initialize variables, currSong will need to be modified based on scene
 		musicPlayer = GameObject.Find("MusicPlayer");
-		currSong = musicPlayer.GetComponent <AudioSource> ();
+		defaultSong = musicPlayer.GetComponent <AudioSource> ();
+		currSong = defaultSong;
 
 		//preserve the instance throughout scene change
 		DontDestroyOnLoad(this.gameObject);
@@ -45,7 +47,7 @@ public class MusicController : MonoBehaviour {
 		// initialized in GamePreferences
 		isMusicOn = false;
 		bool play = GamePreferences.GetMusicState () == 1 ? true : false;
-		PlayMusic (play);
+		MuteSong (play);
 	}
 
 	// **********  not needed in final build   *******
@@ -53,7 +55,7 @@ public class MusicController : MonoBehaviour {
 	void Update (){
 		if (Input.GetKeyDown (KeyCode.Alpha0)) {
 			isMusicOn = !isMusicOn;
-			PlayMusic (isMusicOn);
+			MuteSong (isMusicOn);
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha6)) {
 			SwitchSong ();
@@ -62,19 +64,16 @@ public class MusicController : MonoBehaviour {
 	// ---------------------------------------------------------
 
 	// toggle playing music on and off
-	public void PlayMusic (bool play){
-		if (play && !isMusicOn) {
+	public void MuteSong (bool play){
+		if (play && !currSong.isPlaying) {
 			GamePreferences.SetMusicState (1);
 			isMusicOn = true;
-			if (!currSong.isPlaying) {
-				currSong.Play ();
-			}
-		} else if (!play && isMusicOn){
+			currSong.Play ();
+
+		} else if (!play && currSong.isPlaying){
 			GamePreferences.SetMusicState (0);
 			isMusicOn = false;
-			if (currSong.isPlaying) {
-				currSong.Stop ();
-			}
+			currSong.Stop ();
 		}
 	}
 
@@ -89,15 +88,21 @@ public class MusicController : MonoBehaviour {
 	// should be called from stage script, maybe game controller script
 	public void SwitchSong() {
 		try {
+			AudioSource temp = GameObject.FindGameObjectWithTag ("StageSong").gameObject.GetComponent <AudioSource> ();
 			if (isMusicOn){
 				currSong.Stop();
-				isMusicOn = false;
+				currSong = temp;
+				currSong.Play();
+			} else {
+				currSong = temp;
 			}
-			currSong = GameObject.FindGameObjectWithTag ("StageSong").gameObject.GetComponent <AudioSource> ();
+			print ("Found a song");
 		}catch {
-			currSong = musicPlayer.GetComponent <AudioSource> ();
+			print ("MusicController Could not fetch song");
+			currSong = defaultSong;
+			if (isMusicOn && !currSong.isPlaying){
+				currSong.Play();
+			}
 		}
-		bool play = GamePreferences.GetMusicState() == 1 ? true : false;
-		PlayMusic (play);
 	}
 }
