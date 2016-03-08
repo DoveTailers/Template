@@ -93,10 +93,11 @@ public class MusicController : MonoBehaviour {
 				currSong.Stop();
 				currSong = temp;
 				currSong.Play();
+				print ("Found a song");
 			} else {
 				currSong = temp;
+				print ("Mute Found a song");
 			}
-			print ("Found a song");
 		}catch {
 			print ("MusicController Could not fetch song");
 			currSong = defaultSong;

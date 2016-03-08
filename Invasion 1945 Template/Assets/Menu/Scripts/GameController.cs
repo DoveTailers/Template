@@ -64,33 +64,6 @@ public class GameController : MonoBehaviour {
 //		}
 		MusicController.Instance.SwitchSong ();
 
-<<<<<<< HEAD
-		if (level < 6) {
-			print ("Menus");
-			PlayNoWave ();
-
-		} else if (level == 9) {
-			
-			print ("Wave1");
-			PlayNoWave ();
-			wave1.enabled = true;
-			MusicController.Instance.SwitchSong ();
-
-		} else if (level == 10) {
-
-			print ("wave2");
-			PlayNoWave ();
-			wave2.enabled = true;
-			MusicController.Instance.SwitchSong ();
-
-		
-		}else if (level == 8) {
-			
-			print ("Puzzle 2");
-			PlayNoWave ();
-			MusicController.Instance.SwitchSong ();
-		} 
-=======
 //		if (level < 6) {
 //			print ("Menus");
 //			PlayNoWave ();
@@ -116,7 +89,6 @@ public class GameController : MonoBehaviour {
 //			PlayNoWave ();
 //			MusicController.Instance.SwitchSong ();
 //		} 
->>>>>>> refs/remotes/origin/master
 	}
 
 	public void newGame (){
@@ -129,19 +101,6 @@ public class GameController : MonoBehaviour {
 		//PlayerPrefs.SetString ("Gun3", "10");
 		//PlayerPrefs.SetString ("Gun4", "5");
 		//PlayerPrefs.SetString ("Gun5", "2");
-<<<<<<< HEAD
-	}
-
-	private void PlayNoWave (){
-		print (wave1.enabled.Equals (true));
-		if (wave1.enabled == true) {
-			wave1.enabled = false;
-		}
-		if (wave2.enabled == true) {
-			wave2.enabled = false;
-		}
-=======
->>>>>>> refs/remotes/origin/master
 	}
 
 //	private void PlayNoWave (){
