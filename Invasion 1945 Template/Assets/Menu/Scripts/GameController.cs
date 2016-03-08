@@ -36,8 +36,8 @@ public class GameController : MonoBehaviour {
 		}
 
 		// fetch the scripts
-		wave1 = GetComponent <GameController_Wave> ();
-		wave2 = GetComponent <GameController_Wave2> ();
+		//wave1 = GetComponent <GameController_Wave> ();
+		//wave2 = GetComponent <GameController_Wave2> ();
 
 		newGame ();
 
@@ -64,31 +64,31 @@ public class GameController : MonoBehaviour {
 //		}
 		MusicController.Instance.SwitchSong ();
 
-//		if (level < 6) {
-//			print ("Menus");
-//			PlayNoWave ();
-//
-//		} else if (level == 9) {
-//			
-//			print ("Wave1");
-//			PlayNoWave ();
-//			wave1.enabled = true;
-//			MusicController.Instance.SwitchSong ();
-//
-//		} else if (level == 10) {
-//
-//			print ("wave2");
-//			PlayNoWave ();
-//			wave2.enabled = true;
-//			MusicController.Instance.SwitchSong ();
-//
-//		
-//		}else if (level == 8) {
-//			
-//			print ("Puzzle 2");
-//			PlayNoWave ();
-//			MusicController.Instance.SwitchSong ();
-//		} 
+		if (level < 6) {
+			print ("Menus");
+			//PlayNoWave ();
+
+		} else if (level == 9) {
+			
+			print ("Wave1");
+			//PlayNoWave ();
+			//wave1.enabled = true;
+			MusicController.Instance.SwitchSong ();
+
+		} else if (level == 10) {
+
+			print ("wave2");
+			//PlayNoWave ();
+			// wave2.enabled = true;
+			MusicController.Instance.SwitchSong ();
+
+		
+		}else if (level == 8) {
+			
+			print ("Puzzle 2");
+			// PlayNoWave ();
+			MusicController.Instance.SwitchSong ();
+		} 
 	}
 
 	public void newGame (){
