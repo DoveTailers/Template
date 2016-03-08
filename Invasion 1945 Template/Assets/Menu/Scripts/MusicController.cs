@@ -9,6 +9,7 @@ public class MusicController : MonoBehaviour {
 	public AudioSource currSong;
 	private GameObject musicPlayer;
 	private AudioClip[] allClips;
+
 	// for master volume contolls
 
 	// temp for now to turn off
@@ -26,6 +27,7 @@ public class MusicController : MonoBehaviour {
 		//preserve the old instance if one already exists
      	if (instance != null && instance != this) {
         	Destroy(this.gameObject);
+
         	return;
      	} else {
         	instance = this;

@@ -64,6 +64,7 @@
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
      <Compile Include="Assets\Menu\Scripts\GameController.cs" />
      <Compile Include="Assets\Menu\Scripts\GamePreferences.cs" />
+     <Compile Include="Assets\Menu\Scripts\HighScore.cs" />
      <Compile Include="Assets\Menu\Scripts\LoadOnClick.cs" />
      <Compile Include="Assets\Menu\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Menu\Scripts\MusicController.cs" />
@@ -88,6 +89,7 @@
      <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\FlyingAsteroids.cs" />
      <Compile Include="Assets\Scripts\GameController_Wave.cs" />
+     <Compile Include="Assets\Scripts\GameController_Wave2.cs" />
      <Compile Include="Assets\Scripts\GravityScript.cs" />
      <Compile Include="Assets\Scripts\GravityScript2D.cs" />
      <Compile Include="Assets\Scripts\InfiniteTerrain.cs" />
