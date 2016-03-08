@@ -41,7 +41,11 @@ public class EnemySpawner : MonoBehaviour {
 		} else {
 			spawnInSeconds = 1f;
 		}
-		Invoke ("SpawnEnemy", spawnInSeconds);
+		if(gameObject.activeInHierarchy == true)
+		{
+			Invoke ("SpawnEnemy", spawnInSeconds);
+		}
+
 	}
 
 	void IncreaseSpwanRate() {

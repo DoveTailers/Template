@@ -7,7 +7,8 @@ public class EnemyGun : MonoBehaviour {
 	public GameObject EnemyShoot;
 	// Use this for initialization
 	void Start () {
-		Invoke ("FireEnemyBullet", 1f);
+		InvokeRepeating ("FireEnemyBullet", 1f, 3f);
+
 		// Fire enemy bullet after 1 second
 	}
 	
