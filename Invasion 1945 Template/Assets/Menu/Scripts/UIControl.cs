@@ -88,9 +88,9 @@ public class UIControl : MonoBehaviour {
 	// Update is called once per frame
 	// Use J,K to switch between weapons
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.J)) {
+		if (Input.GetButtonDown ("ChangeGun") && (Input.GetAxisRaw ("ChangeGun") < 0f)) {
 			ChangeWeapon (-1);
-		} else if (Input.GetKeyDown (KeyCode.K)) {
+		} else if (Input.GetButtonDown ("ChangeGun") && (Input.GetAxisRaw ("ChangeGun") > 0f)) {
 			ChangeWeapon (1);
 		}
 
