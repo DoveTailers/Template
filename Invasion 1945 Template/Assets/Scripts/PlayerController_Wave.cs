@@ -35,8 +35,25 @@ public class PlayerController_Wave : MonoBehaviour {
 			}
 			else if(bulletType == 1)
 			{
-				Instantiate(shot2_a, shotSpawn.position, shotSpawn.rotation);
-				Instantiate(shot2_b, shotSpawn.position, shotSpawn.rotation);
+                if (UIControl.Instance.GetAmmo() > 0)
+                {
+                    Instantiate(shot2_a, shotSpawn.position, shotSpawn.rotation);
+                    Instantiate(shot2_b, shotSpawn.position, shotSpawn.rotation);
+                    UIControl.Instance.SetAmmo(-1);
+                }
+                else {
+                    
+                    if (UIControl.Instance.ChangeWeaponTo(0))
+                    {
+                        if (bulletType != 0)
+                        {
+                            bulletType = 0;
+                        }
+                        
+                    }
+                }
+				
+                
 			}
 		}
 
@@ -55,16 +72,36 @@ public class PlayerController_Wave : MonoBehaviour {
 			Mathf.Clamp (rb.position.x, boundary1.xMin, boundary1.xMax),  
 			Mathf.Clamp (rb.position.y, boundary1.yMin, boundary1.yMax)
 		);
-		if (Input.GetButtonDown("Fire2")) 
-		{
-			if (bulletType != 1)
-			{
-				bulletType++;
-			}
-			else if (bulletType == 1)
-			{
-				bulletType = 0;
-			}
-		}
+		//if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("ChangeGun") && (Input.GetAxisRaw("ChangeGun") < 0f))
+        {//button j
+            if(UIControl.Instance.ChangeWeapon(-1))
+            {
+                if (bulletType != 0)
+                {
+                    bulletType--;
+
+                }
+                else {
+                    bulletType = 1;
+                }
+            }
+        }
+        else if (Input.GetButtonDown("ChangeGun") && (Input.GetAxisRaw("ChangeGun") > 0f))
+        {//button k
+            if(UIControl.Instance.ChangeWeapon(1))
+            {
+                if (bulletType != 1)
+                {
+                    bulletType++;
+                }
+                else if (bulletType == 1)
+                {
+                    bulletType = 0;
+                }
+            }
+
+        }
+		
 	}
 }

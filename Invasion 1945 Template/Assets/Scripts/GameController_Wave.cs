@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class GameController_Wave : MonoBehaviour {
 
 	public GameObject hazard1;
@@ -12,7 +12,7 @@ public class GameController_Wave : MonoBehaviour {
 	private GameObject EnemySpawnObject;
 	public float StartWaitTime;
 	public float StopWaitTime;
-
+    public float NextWaitTime;
 	void Start () {
 
 
@@ -22,6 +22,7 @@ public class GameController_Wave : MonoBehaviour {
 		StartCoroutine (SpawnRandomToggle(StartWaitTime));
 		StartCoroutine (SpawnRandomToggle(StopWaitTime));
 		StartCoroutine (SpawnWaves (spawnValues3, waveWait3, hazard2));
+        StartCoroutine (Next(NextWaitTime));
 	}
 
 	IEnumerator SpawnWaves (Vector2 sv, float wWait, GameObject ha) {
@@ -38,5 +39,10 @@ public class GameController_Wave : MonoBehaviour {
 		}
 
 	}
+
+    IEnumerator Next(float waittime) {
+        yield return new WaitForSeconds(waittime);
+        SceneManager.LoadScene("Puzzle_2");
+    }
 
 }
