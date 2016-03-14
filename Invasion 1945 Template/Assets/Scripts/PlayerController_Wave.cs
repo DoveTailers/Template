@@ -13,6 +13,7 @@ public class PlayerController_Wave : MonoBehaviour {
 	public Boundary1 boundary1;
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D> ();
+		UIControl.Instance.ChangeWeaponTo (0);
 	}
 
 	public GameObject shot1;

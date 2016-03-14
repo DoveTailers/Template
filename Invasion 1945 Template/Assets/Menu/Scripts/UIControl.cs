@@ -62,9 +62,7 @@ public class UIControl : MonoBehaviour {
 //		}
 
 		// get the current weapon
-		if (PlayerPrefs.HasKey (selected_weapon)) {
-			selectedWeapon = PlayerPrefs.GetInt (selected_weapon);
-		} 
+		selectedWeapon = 0;
 		// not needed
 //		else {
 //			//selectedWeapon = gun1;
@@ -94,7 +92,6 @@ public class UIControl : MonoBehaviour {
 			ChangeWeapon (1);
 		}
         *///ill have the player controller send the signal instead.
-
 
 
 		//TEST AREA ------------------------------------------------------------------------
@@ -196,13 +193,26 @@ public class UIControl : MonoBehaviour {
 		// rest of stuff
 		PlayerPrefs.SetInt ("PlayerScore", int.Parse(score.text));
 		PlayerPrefs.SetFloat ("PlayerHealth", healthBar.gameObject.GetComponent<Slider>().value);
-		//PlayerPrefs.SetInt ("NumLives", 3);
+		PlayerPrefs.SetInt ("NumLives", 3);
 		PlayerPrefs.SetInt ("SelectedWeapon", selectedWeapon);
 	}
 
 	public void DestroyUI(){
 		// to be used when switching to a stage that doesn't need a UI
 		Destroy (this.gameObject);
+	}
+
+	public int GetWeapon(){
+		return this.selectedWeapon;
+	}
+
+	public void DisplayCount(int num){
+		Text count = GameObject.Find ("CountDownDisplay").gameObject.GetComponent<Text> ();
+		if (num == -1) {
+			count.text = "";
+		} else {
+			count.text = num.ToString ();
+		}
 	}
 }
 
