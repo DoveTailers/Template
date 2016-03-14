@@ -11,8 +11,6 @@ public class GameController : MonoBehaviour {
 	private string level1 = "main_test";
 
 	// all scripts with variables
-	public GameController_Wave wave1;
-	public GameController_Wave2 wave2;
 
 	private static GameController instance = null;
 
@@ -39,7 +37,6 @@ public class GameController : MonoBehaviour {
 		//wave1 = GetComponent <GameController_Wave> ();
 		//wave2 = GetComponent <GameController_Wave2> ();
 
-		newGame ();
 
 		DontDestroyOnLoad(this.gameObject);
 	}
@@ -91,16 +88,22 @@ public class GameController : MonoBehaviour {
 		} 
 	}
 
-	public void newGame (){
+	public static void newGame (){
 		PlayerPrefs.SetInt ("PlayerScore", 0);
 		PlayerPrefs.SetFloat ("PlayerHealth", 100f);
 		PlayerPrefs.SetInt ("NumLives", 3);
-		PlayerPrefs.SetInt ("SelectedWeapon", 0);
 
 		PlayerPrefs.SetString ("Gun2", "40");
 		//PlayerPrefs.SetString ("Gun3", "10");
 		//PlayerPrefs.SetString ("Gun4", "5");
 		//PlayerPrefs.SetString ("Gun5", "2");
+	}
+
+	public static void ResetStats(){
+		PlayerPrefs.DeleteKey ("PlayerHealth");
+		//PlayerPrefs.DeleteKey ("PlayerScore");
+		PlayerPrefs.DeleteKey ("NumLives");
+		PlayerPrefs.DeleteKey ("Gun2");
 	}
 
 //	private void PlayNoWave (){
