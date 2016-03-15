@@ -222,9 +222,9 @@ public class UIControl : MonoBehaviour {
 		return this.selectedWeapon;
 	}
 
-	public void DisplayCount(int num){
+	public void DisplayCount(float num){
 		Text count = GameObject.Find ("CountDownDisplay").gameObject.GetComponent<Text> ();
-		if (num == -1) {
+		if (num == 0) {
 			count.text = "";
 		} else {
 			count.text = num.ToString ();

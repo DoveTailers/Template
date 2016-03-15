@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour {
 	private GameObject dialogBox;
 	private GameObject pauseDisplay;
 	private Scene thisScene;
-	private float timeleft;
+	private float timeStarted;
 
 	private string dialogStatus;
 
@@ -24,7 +24,6 @@ public class PauseMenu : MonoBehaviour {
 		dialogBox.SetActive (false);
 		pauseMenuCanvas.SetActive (false);
 
-		timeleft = 0;
 		// confirm box values
 		dialogStatus = "";
 	}
@@ -38,37 +37,38 @@ public class PauseMenu : MonoBehaviour {
 			if (isPaused) {
 				dialogStatus = "";
 				TogglePause (true);
+				Continue ();
+			} else {
+				isPaused = true;
 			}
-			isPaused = !isPaused;
 		}
 		if (isPaused) {
 		// freeze the game, activate pause menu
-			Time.timeScale = 0.00000001f;
+			Time.timeScale = 0f;
 			pauseMenuCanvas.SetActive (true);
 		} 
 		else {
 		// unpause and unfreeze adding countdown timer
-			Time.timeScale = 1f;
 			pauseMenuCanvas.SetActive (false);
 		}
 	}
 
 	// do the countdown
-//	private IEnumerator CountDown(){
-//		print ("at enum");
-//		int displayNum = 3;
-//		timeleft = 3f * Time.timeScale;
-//		pauseMenuCanvas.SetActive (false);
-//
-//		while (timeleft > 0) {
-//			UIControl.Instance.DisplayCount (displayNum);
-//			yield return new WaitForSeconds (Time.timeScale);
-//			timeleft -= Time.timeScale;
-//			displayNum--;
-//		}
-//		UIControl.Instance.DisplayCount (0);
-//		Time.timeScale = 1f;
-//	}
+	private IEnumerator CountDown(){
+		print ("at enum");
+		//timeleft = 3f * Time.timeScale;
+		pauseMenuCanvas.SetActive (false);
+
+		float pauseEndTime = Time.realtimeSinceStartup + 3;
+		while (Time.realtimeSinceStartup < pauseEndTime)
+		{
+			UIControl.Instance.DisplayCount (Mathf.Ceil (pauseEndTime - Time.realtimeSinceStartup));
+			yield return 0;
+		}
+		UIControl.Instance.DisplayCount (0f);
+		Time.timeScale = 1f;
+		//yield return null;
+	}
 
 	private void TogglePause (bool pauseOn){
 		dialogBox.SetActive (!pauseOn);
@@ -84,6 +84,9 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Continue ()
 	{
+		print ("starting coroutine");
+		StartCoroutine (CountDown());
+		print ("ending coroutine");
 		isPaused = false;
 
 	}
