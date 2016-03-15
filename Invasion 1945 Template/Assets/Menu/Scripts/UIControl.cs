@@ -107,6 +107,11 @@ public class UIControl : MonoBehaviour {
 			AdjustHealth (5.0f);
 		}
 		// ----------------------------------------------------------------------------------
+//		if (Input.GetAxisRaw ("ChangeGun") > 0) {
+//			print ("hello +");
+//		} else if (Input.GetAxisRaw ("ChangeGun") < 0) {
+//			print ("hello -");
+//		}
 	}
 
 	// set active of active weapon object, while disabling all others. check to see which object is active to know
