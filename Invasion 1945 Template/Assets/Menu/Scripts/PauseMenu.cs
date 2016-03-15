@@ -110,9 +110,13 @@ public class PauseMenu : MonoBehaviour {
 		if (dialogStatus == "restart") {
 			
 			print ("restarting");
+			isPaused = false;
+			Time.timeScale = 1f;
 			SceneManager.LoadScene (thisScene.name);
 
 		} else if (dialogStatus == "quit") {
+			isPaused = false;
+			Time.timeScale = 1f;
 			print ("quitting");
 			SceneManager.LoadScene ("mainmenub");
 		} else {
