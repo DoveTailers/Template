@@ -9,8 +9,8 @@ public class HighScore : MonoBehaviour {
 	void Start(){
 		try{
 			scoreText = GameObject.Find ("ScoreText").gameObject.GetComponent<Text>();
-			if (PlayerPrefs.HasKey ("PlayerScore")){
-				scoreText.text = PlayerPrefs.GetInt("PlayerScore").ToString();
+			if (PlayerPrefs.HasKey ("AllScores")){
+				scoreText.text = PlayerPrefs.GetString("AllScores");
 			}
 		}catch{
 			print ("could not get highscore text field");

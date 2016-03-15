@@ -113,6 +113,17 @@ public class UIControl : MonoBehaviour {
 //			print ("hello -");
 //		}
 	}
+		
+
+	// reset the ammo count of all weapons
+	public void resetAmmo (){
+		int ammo = 40;
+		for (int i = 1; i < allWeapons.Length; i++) {
+			selectedWeapon = i;
+			SetAmmo ((ammo - GetAmmo ()));
+		}
+		selectedWeapon = 0;
+	}
 
 	// set active of active weapon object, while disabling all others. check to see which object is active to know
 	// active weapon

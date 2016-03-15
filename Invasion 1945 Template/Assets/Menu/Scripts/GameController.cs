@@ -70,7 +70,12 @@ public class GameController : MonoBehaviour {
 			print ("Wave1");
 			//PlayNoWave ();
 			//wave1.enabled = true;
+			// this may need to be changed to work with save game properly
+			ResetStats ();
+			newGame ();
+			// locall changes
 			MusicController.Instance.SwitchSong ();
+			UIControl.Instance.resetAmmo ();
 
 		} else if (level == 10) {
 
@@ -92,6 +97,7 @@ public class GameController : MonoBehaviour {
 		PlayerPrefs.SetInt ("PlayerScore", 0);
 		PlayerPrefs.SetFloat ("PlayerHealth", 100f);
 		PlayerPrefs.SetInt ("NumLives", 3);
+		PlayerPrefs.SetString ("AllScores", "AC 0\nDC 0\n");
 
 		PlayerPrefs.SetString ("Gun2", "40");
 		//PlayerPrefs.SetString ("Gun3", "10");
@@ -101,7 +107,7 @@ public class GameController : MonoBehaviour {
 
 	public static void ResetStats(){
 		PlayerPrefs.DeleteKey ("PlayerHealth");
-		//PlayerPrefs.DeleteKey ("PlayerScore");
+		PlayerPrefs.DeleteKey ("PlayerScore");
 		PlayerPrefs.DeleteKey ("NumLives");
 		PlayerPrefs.DeleteKey ("Gun2");
 	}

@@ -10,6 +10,9 @@ public class PauseMenu : MonoBehaviour {
 	private Scene thisScene;
 	private float timeleft;
 
+	private bool isQuit;
+	private bool isRestart;
+
 	void Awake (){
 		// initiate variables
 		pauseMenuCanvas = GameObject.Find ("PauseCanvas");
@@ -17,6 +20,9 @@ public class PauseMenu : MonoBehaviour {
 		isPaused = false;
 		pauseMenuCanvas.SetActive (false);
 		timeleft = 0;
+		// confirm box values
+		isQuit = false;
+		isRestart = false;
 	}
 
 	// Update is called once per frame
