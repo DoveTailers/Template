@@ -7,7 +7,9 @@ public class InfiniteTerrain : MonoBehaviour
 	public GameObject linkedBg;
 
 	private GameObject[] _bgGrid = new GameObject[3];
-	
+
+	private bool alternateBgFlip = true;
+
 	void Start ()
 	{
 		
@@ -25,10 +27,28 @@ public class InfiniteTerrain : MonoBehaviour
 			_bgGrid[1].transform.position.y - 2*_bgGrid[1].GetComponent<SpriteRenderer>().bounds.extents.y,
 			_bgGrid[1].transform.position.z);
 
+
+
 		_bgGrid[2].transform.position = new Vector3(
 			_bgGrid[1].transform.position.x,
 			_bgGrid[1].transform.position.y + 2*_bgGrid[1].GetComponent<SpriteRenderer>().bounds.extents.y,
 			_bgGrid[1].transform.position.z);
+
+		if(alternateBgFlip) {
+			Vector3 newScale = _bgGrid[0].transform.localScale;
+			newScale.x *= -1;
+			_bgGrid[0].transform.localScale = newScale;
+
+
+
+			alternateBgFlip = false;
+		}
+
+		Vector3 newScale2 = _bgGrid[2].transform.localScale;
+		newScale2.x *= -1;
+		_bgGrid[2].transform.localScale = newScale2;
+
+
 		
 	}
 
@@ -56,29 +76,12 @@ public class InfiniteTerrain : MonoBehaviour
 			if (playerTerrain == _bgGrid[2])
 			{
 				GameObject[] newBgGrid = new GameObject[3];
-				//Destroy (_bgGrid[0]);
-				//Destroy (_bgGrid[1]);
-				//_bgGrid[0] = (GameObject)Instantiate (Resources.Load("space2"), _bgGrid[1].transform.position, _bgGrid[1].transform.rotation);
-				//_bgGrid[1] = (GameObject)Instantiate (Resources.Load("space2"), _bgGrid[1].transform.position, _bgGrid[1].transform.rotation);
-
 
 				newBgGrid[0] = _bgGrid[1];
 				newBgGrid[1] = _bgGrid[2];
 				newBgGrid[2] = _bgGrid[0];
 				_bgGrid = newBgGrid;
 
-				//Destroy (_bgGrid[1]);
-				//newBgGrid[1] = _bgGrid[1];
-				//_bgGrid[0].transform.position = new Vector3(_bgGrid[0].transform.position.y + 10, _bgGrid[0].transform.position.x, _bgGrid[0].transform.position.z);
-				//_bgGrid [0] = _bgGrid [1];
-				//_bgGrid [1] = _bgGrid [0];
-
-				/*
-			_bgGrid[0].transform.position = new Vector3(
-				_bgGrid[1].transform.position.x,
-				_bgGrid[1].transform.position.y + 2*_bgGrid[0].GetComponent<SpriteRenderer>().bounds.extents.y,
-				_bgGrid[1].transform.position.z);
-			*/
 				UpdateTerrainPositionsAndNeighbors();
 			}
 		}

@@ -23,20 +23,13 @@ public class TestAxis : MonoBehaviour {
 	private float camHeight;
 	public static bool level2 = false;
 	bool asteroidsSpawned = false;
-	private GUIStyle myGUIStyle1 = new GUIStyle();
 	Rigidbody spaceShipRigidBody;
 	public static bool betweenLevels = false;
 
 	public static bool doneLevel2Transition = false;
 	private float spaceshipInitYPos = 0f;
 	public static int blackHoleCount = 0;
-
-	void OnGUI() {
-		myGUIStyle1.fontSize = 50;
-		myGUIStyle1.normal.textColor = Color.white;
-
-		GUI.Label (new Rect (10, 5, 100, 50), "Movement: " + Input.GetAxis("Vertical"), myGUIStyle1);
-	}
+	public static int numOfDeaths = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -49,6 +42,18 @@ public class TestAxis : MonoBehaviour {
 		betweenLevels = false;
 		doneLevel2Transition = false;
 		level2 = false;
+
+		if(Collisions.checkpoint == 1) {
+			betweenLevels = true;
+			camera.transform.position = new Vector3 (camera.transform.position.x, camera.transform.position.y + 13, camera.transform.position.z);
+			spaceShipRigidBody.transform.position = new Vector3 (spaceShipRigidBody.transform.position.x + 2, spaceShipRigidBody.transform.position.y + 13, spaceShipRigidBody.transform.position.z);
+		}
+		GameObject[] innerAsteroids = GameObject.FindGameObjectsWithTag ("InnerAsteroids");
+		if (numOfDeaths > 2 && (innerAsteroids.Length > 0)) {
+			foreach (GameObject asteroid in innerAsteroids) {
+				Destroy (asteroid);
+			}
+		}
 	}
 	
 	// Update is called once per frame
@@ -71,7 +76,7 @@ public class TestAxis : MonoBehaviour {
 			Vector3 targetPosition2 = new Vector3 (camera.transform.position.x, Camera.main.transform.position.y + cameraScrollSpeed, camera.transform.position.z);
 			camera.transform.position = Vector3.Slerp (camera.transform.position, targetPosition2, Time.deltaTime * 1.8f);
 			if (GameObject.FindGameObjectsWithTag ("BlackHole").Length < 2) {
-				GameObject firstBlackHole = (GameObject) Instantiate (BlackHole, new Vector3 (Random.Range(-9.0f, 0f), Camera.main.transform.position.y + (camHeight/2) + 0.5f , 0.0f), Quaternion.identity);
+				GameObject firstBlackHole = (GameObject) Instantiate (BlackHole, new Vector3 (Random.Range(-9.0f, 0f), Camera.main.transform.position.y + (camHeight/2) + 2.0f , 0.0f), Quaternion.identity);
 				Instantiate (BlackHole, new Vector3 (Random.Range(0f, 9.0f), Random.Range(firstBlackHole.transform.position.y + camHeight/2,  + firstBlackHole.transform.position.y + 5.0f) , 0.0f), Quaternion.identity);
 				blackHoleCount++;
 				if (blackHoleCount > 1 && !asteroidsSpawned) {
@@ -80,9 +85,6 @@ public class TestAxis : MonoBehaviour {
 				}
 
 			}
-
-
-
 		}
 	}
 		
@@ -150,6 +152,7 @@ public class TestAxis : MonoBehaviour {
 					spaceShipRigidBody.position = Vector3.Slerp (spaceShipRigidBody.position, targetPosition2, Time.deltaTime * 1.8f);
 					level2 = true;
 					betweenLevels = false;
+					Collisions.checkpoint = 1;
 				}
 				initialCameraPosYMin = camera.transform.position.y;
 			}

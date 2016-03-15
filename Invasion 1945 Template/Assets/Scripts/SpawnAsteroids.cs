@@ -7,7 +7,7 @@ public class SpawnAsteroids : MonoBehaviour {
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
-	public GameObject Stone3;
+	public GameObject[] Stone3 = new GameObject[4];
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +31,7 @@ public class SpawnAsteroids : MonoBehaviour {
 			{
 				Vector3 spawnPosition = new Vector3 (Random.Range (-9.0f, 9.0f), 24.0f, 0.0f);
 				Quaternion spawnRotation = Quaternion.identity;
-				GameObject asteroid = (GameObject) Instantiate (Stone3, new Vector3 (Random.Range(-9.0f, 9.0f), Camera.main.transform.position.y + (Camera.main.orthographicSize) + 5f , 0.0f), Quaternion.identity);
+				GameObject asteroid = (GameObject) Instantiate (Stone3[Random.Range(0, 4)], new Vector3 (Random.Range(-9.0f, 9.0f), Camera.main.transform.position.y + (Camera.main.orthographicSize) + 5f , 0.0f), Quaternion.identity);
 				Rigidbody rb = asteroid.GetComponent<Rigidbody> ();
 				rb.velocity = Random.insideUnitSphere * 10.0f;
 				

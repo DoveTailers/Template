@@ -7,7 +7,7 @@ public class CollisionDetection : MonoBehaviour {
 	
 	public static bool collision = false;
 	public GameObject Explosion;
-
+	public Canvas moveUpText;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +21,7 @@ public class CollisionDetection : MonoBehaviour {
 			Destroy (collider.gameObject);
 			puzzle1Complete = true;
 			TestAxis.betweenLevels = true;
+			Instantiate (moveUpText);
 		}
 
 	}
@@ -30,5 +31,6 @@ public class CollisionDetection : MonoBehaviour {
 			Instantiate(Explosion, this.gameObject.transform.position, Quaternion.identity);
 			collision = true;
 		}
+		TestAxis.numOfDeaths++;
 	}
 }

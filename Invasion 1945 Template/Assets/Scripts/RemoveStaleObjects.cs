@@ -20,7 +20,7 @@ public class RemoveStaleObjects : MonoBehaviour {
 		GameObject[] array = ((OuterAsteroids.Concat (InnerAsteroids).ToArray()).Concat(flyingAsteroids).ToArray()).Concat(removableObjectsBlackHole).ToArray();
 
 		foreach (GameObject obj in array) {
-			if (obj.transform.position.y < (Camera.main.transform.position.y - Camera.main.orthographicSize - 1.0f)) {
+			if (obj.transform.position.y < (Camera.main.transform.position.y - Camera.main.orthographicSize - 3.0f)) {
 				Destroy (obj);
 			}
 		}

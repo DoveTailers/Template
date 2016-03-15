@@ -1,15 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\UIControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TestAxis.cs">
     <Files>
-      <File FileName="Assets\Menu\Scripts\UIControl.cs" Line="110" Column="22" />
-      <File FileName="Assets\Menu\Scripts\PauseMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\LoadOnClick.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\GamePreferences.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\MusicController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\VolumeControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CollisionDetection.cs" Line="32" Column="21" />
+      <File FileName="Assets/Scripts/Collisions.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TestAxis.cs" Line="49" Column="22" />
+      <File FileName="Assets/Scripts/SpawnAsteroids.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FlyingAsteroids.cs" Line="1" Column="1" />
+      <File FileName="Assets/FlashingTextScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RemoveStaleObjects.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/InfiniteTerrain.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Puzzle1.cs" Line="1" Column="1" />
+      <File FileName="Assets/Shaders/WaterBlurFinal.shader" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BlurControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GravityScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,6 +5,8 @@ public class Collisions : MonoBehaviour {
 	public float restartDelay = 3f;
 	float restartTimer;
 
+	public static int checkpoint = 0;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -24,6 +26,7 @@ public class Collisions : MonoBehaviour {
 			{
 				
 				Application.LoadLevel("Puzzle_2");
+
 			}
 
 		}
