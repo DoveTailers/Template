@@ -150,6 +150,9 @@ public class UIControl : MonoBehaviour {
     }
     public bool ChangeWeaponTo(int choice) {
         //change it to a weapon of choice, use carefully to not go over.
+		if (choice < 0 || choice >= allWeapons.Length) {
+			return false;
+		}
         selectedWeapon = choice;
         for (int i = 0; i < allWeapons.Length; i++)
         {
@@ -195,6 +198,33 @@ public class UIControl : MonoBehaviour {
 
 	public void AdjustHealth (float amount) {
 		healthBar.GetComponent<Slider> ().value += amount;
+	}
+
+	public void SetHealth (float amount){
+		healthBar.GetComponent<Slider> ().value = amount;
+	}
+
+	public float GetHealth (){
+		return healthBar.GetComponent<Slider> ().value;
+	}
+
+	public void AddScore (int s){
+		try{
+			Text scoreDisplay = GameObject.Find("HighScoreText").gameObject.GetComponent<Text>();
+			int score = int.Parse(scoreDisplay.text);
+			scoreDisplay.text = (score + s).ToString();
+		}catch{
+			print ("Could not ADD to score");
+		}
+	}
+
+	public void SetScore (int newS){
+		try {
+			Text scoreDisplay = GameObject.Find("HighScoreText").gameObject.GetComponent<Text>();
+			scoreDisplay.text = newS.ToString();
+		} catch{
+			print ("Could not SET score");
+		}
 	}
 
 	public void SaveGameState(){

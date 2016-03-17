@@ -10,13 +10,13 @@ public class Shootable_DestoryByContact : MonoBehaviour {
 		{
 			return;
 		}
-		if (other.tag == "Player" || other.tag == "Bullet") {
+		if (other.tag == "Player") {
 			Instantiate(explosion, transform.position, transform.rotation);
 			Destroy(other.gameObject);
 			Destroy(gameObject);
-		}
+		} else if (other.tag == "Bullet"){
 
-		
-		
+		}
+			
 	}
 }
