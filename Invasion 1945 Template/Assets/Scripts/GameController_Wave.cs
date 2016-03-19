@@ -41,8 +41,12 @@ public class GameController_Wave : MonoBehaviour {
 	}
 
     IEnumerator Next(float waittime) {
-        yield return new WaitForSeconds(waittime);
-        SceneManager.LoadScene("Puzzle_2");
-    }
-
+		yield return new WaitForSeconds (waittime);
+		if (!GameController.Instance.IsPlayerDead ()) {
+			print ("moving to next wave");
+			UIControl.Instance.AddScore (1500);
+			GameController.Instance.SaveGameState ();
+			SceneManager.LoadScene ("Puzzle_2");
+		}
+	}
 }

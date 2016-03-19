@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -8,7 +9,25 @@ public class GameController : MonoBehaviour {
 
 	private Scene currScene;
 	private Scene reachedLevel;
+
+	private bool playerDead;
+
+	// all save game key values, UIControl.cs and this script use these values for PlayerPrefs
+	public string allScores = "AllScores";
+	public string highscore = "PlayerScore";
+	public string health = "PlayerHealth";
+	public string gun2 = "Gun2";
+	public string levelReached = "LevelReached";
+	public string checkpointKey = "Checkpoint";
+
+	// holds the actual scene names of scene and checkpoint
+	public string lastLevelName;
+	public string checkpoint;
+
+	// names of levels
 	private string level1 = "main_test";
+	//private string puzzle1 = "puzzle_2";
+	//private string level2 = "wave2";
 
 	// all scripts with variables
 
@@ -27,18 +46,46 @@ public class GameController : MonoBehaviour {
 			instance = this;
 		}
 
-		if (PlayerPrefs.HasKey ("ReachedLevel")) { 
-			SceneManager.GetSceneByName (PlayerPrefs.GetString ("ReachedLevel"));
-		} else {
-			PlayerPrefs.SetString ("ReachedLevel", level1);
+		lastLevelName = "";
+		checkpoint = "";
+		playerDead = false;
+
+		PlayerPrefs.DeleteKey (allScores);
+		if (!PlayerPrefs.HasKey (allScores)) {
+			// made up 
+			PlayerPrefs.SetString (allScores, "\n");
 		}
 
-		// fetch the scripts
-		//wave1 = GetComponent <GameController_Wave> ();
-		//wave2 = GetComponent <GameController_Wave2> ();
+		// initiate newGame for the first time
+		if (!PlayerPrefs.HasKey (highscore)) {
+			newGame ();
+		}
 
+		//UIControl.Instance.SaveToScores ();
 
 		DontDestroyOnLoad(this.gameObject);
+	}
+
+	IEnumerator OnDeath(){
+		// stuff to do when player dies
+		SetLastLevelName ();
+		yield return new WaitForSeconds (3);
+		SceneManager.LoadScene ("GameOver");
+		playerDead = false;
+	}
+
+	IEnumerator Message (string m){
+		Text messageBox = null;
+		try{
+			messageBox = GameObject.FindGameObjectWithTag("Message").GetComponent<Text>();
+			messageBox.text = m;
+		} catch{
+			print ("Could not get messageBox!");
+		}
+		yield return new WaitForSeconds (5);
+		if (messageBox != null) {
+			messageBox.text = "";
+		}
 	}
 
 	void OnLevelWasLoaded (int level){
@@ -49,76 +96,103 @@ public class GameController : MonoBehaviour {
 		// 9 main_test
 		// 10 wave2
 
-//		if (level == 1) {
-//			print ("MainMenu");
-//			PlayNoWave ();
-//			MusicController.Instance.SwitchSong ();
-//		}
-//		if (level == 0) {
-//			print ("MainMenu");
-//			PlayNoWave ();
-//			MusicController.Instance.SwitchSong ();
-//		}
+		// find stage song
 		MusicController.Instance.SwitchSong ();
+		playerDead = false;
 
 		if (level < 6) {
-			print ("Menus");
-			//PlayNoWave ();
+			//print ("Menus");
 
-		} else if (level == 9) {
+		} else {
+			// remember the scene name
+			SetLastLevelName ();
+
+			if (level == 9) {
 			
-			print ("Wave1");
-			//PlayNoWave ();
-			//wave1.enabled = true;
-			// this may need to be changed to work with save game properly
-			ResetStats ();
-			newGame ();
-			// locall changes
-			MusicController.Instance.SwitchSong ();
-			UIControl.Instance.resetAmmo ();
+				print ("Wave1");
+				newGame ();
+				UIControl.Instance.LoadGameStateUI ();
 
-		} else if (level == 10) {
+			} else if (level == 10) {
 
-			print ("wave2");
-			//PlayNoWave ();
-			// wave2.enabled = true;
-			MusicController.Instance.SwitchSong ();
+				print ("wave2");
+				UIControl.Instance.LoadGameStateUI ();
 
 		
-		}else if (level == 8) {
+			} else if (level == 8) {
 			
-			print ("Puzzle 2");
-			// PlayNoWave ();
-			MusicController.Instance.SwitchSong ();
-		} 
+				print ("Puzzle 2");
+				UIControl.Instance.LoadGameStateUI ();
+			} 
+
+		}
 	}
 
-	public static void newGame (){
-		PlayerPrefs.SetInt ("PlayerScore", 0);
-		PlayerPrefs.SetFloat ("PlayerHealth", 100f);
-		PlayerPrefs.SetInt ("NumLives", 3);
-		PlayerPrefs.SetString ("AllScores", "AC 0\nDC 0\n");
+	public void PlayerDied (){
+		playerDead = true;
+		StartCoroutine (OnDeath ());
+	}
 
-		PlayerPrefs.SetString ("Gun2", "40");
+	public bool IsPlayerDead (){
+		return playerDead;
+	}
+
+	public void newGame (){
+		PlayerPrefs.SetInt (highscore, 0);
+		PlayerPrefs.SetFloat (health, 100f);
+		PlayerPrefs.SetString (gun2, "40");
+		PlayerPrefs.SetString (levelReached, level1);
+		PlayerPrefs.SetString (checkpointKey, checkpoint);
 		//PlayerPrefs.SetString ("Gun3", "10");
 		//PlayerPrefs.SetString ("Gun4", "5");
 		//PlayerPrefs.SetString ("Gun5", "2");
 	}
 
-	public static void ResetStats(){
-		PlayerPrefs.DeleteKey ("PlayerHealth");
-		PlayerPrefs.DeleteKey ("PlayerScore");
-		PlayerPrefs.DeleteKey ("NumLives");
-		PlayerPrefs.DeleteKey ("Gun2");
+	public void ResetStats(){
+		PlayerPrefs.DeleteKey (highscore);
+		PlayerPrefs.DeleteKey (health);
+		PlayerPrefs.DeleteKey (gun2);
+		PlayerPrefs.DeleteKey (levelReached);
+		PlayerPrefs.DeleteKey (checkpointKey);
 	}
 
-//	private void PlayNoWave (){
-//		print (wave1.enabled.Equals (true));
-//		if (wave1.enabled == true) {
-//			wave1.enabled = false;
-//		}
-//		if (wave2.enabled == true) {
-//			wave2.enabled = false;
-//		}
-//	}
+	public void SaveGameState (){
+		// called savegamestate
+		ResetStats ();
+		SetLastLevelName ();
+		UIControl.Instance.SaveGameStateUI ();
+		PlayerPrefs.Save ();
+	}
+
+	public void LoadGame (){
+		SceneManager.LoadScene (PlayerPrefs.GetString (levelReached));
+	}
+
+	public void Continue (){
+		if (PlayerPrefs.HasKey (levelReached)) {
+			SceneManager.LoadScene (PlayerPrefs.GetString (levelReached));
+		} else {
+			string m = "NO SAVED GAME AVAILABLE";
+			StartCoroutine (Message (m));
+		}
+	}
+
+	public string GetLastLevelName (){
+		return lastLevelName;
+	}
+
+	public void SetLastLevelName (){
+		PlayerPrefs.DeleteKey (levelReached);
+		lastLevelName = SceneManager.GetActiveScene ().name;
+		PlayerPrefs.SetString (levelReached, lastLevelName);
+	}
+
+	public void SetCheckpoint (string s){
+		PlayerPrefs.SetString (checkpointKey, s);
+		checkpoint = s;
+	}
+
+	public string GetCheckpoint (){
+		return checkpoint;
+	}
 }

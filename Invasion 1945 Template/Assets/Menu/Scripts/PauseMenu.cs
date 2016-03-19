@@ -39,7 +39,9 @@ public class PauseMenu : MonoBehaviour {
 				TogglePause (true);
 				Continue ();
 			} else {
-				isPaused = true;
+				if (!GameController.Instance.IsPlayerDead ()) {
+					isPaused = true;
+				}
 			}
 		}
 		if (isPaused) {
@@ -55,7 +57,7 @@ public class PauseMenu : MonoBehaviour {
 
 	// do the countdown
 	private IEnumerator CountDown(){
-		print ("at enum");
+		//print ("at enum");
 		//timeleft = 3f * Time.timeScale;
 		pauseMenuCanvas.SetActive (false);
 
@@ -84,9 +86,9 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Continue ()
 	{
-		print ("starting coroutine");
+		//print ("starting coroutine");
 		StartCoroutine (CountDown());
-		print ("ending coroutine");
+		//print ("ending coroutine");
 		isPaused = false;
 
 	}
@@ -128,11 +130,11 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Save (){
 		// save needed variables to PlayerPrefs
-		print ("nothing here yet");
+		GameController.Instance.SaveGameState();
 	}
 
 	public void Load (){
 		// loaded needed PlayerPrefs
-		print ("nothing here yet");
+		GameController.Instance.LoadGame();
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Collisions : MonoBehaviour {
 	public float restartDelay = 3f;
@@ -25,8 +26,7 @@ public class Collisions : MonoBehaviour {
 			if(restartTimer >= restartDelay)
 			{
 				
-				Application.LoadLevel("Puzzle_2");
-
+				SceneManager.LoadScene("Puzzle_2");
 			}
 
 		}
