@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using System;
+using System.Text;
+using System.Collections.Generic;
 
 public class UIControl : MonoBehaviour {
 	// names for playerprefs
-	string highscore = "PlayerScore";
-	string health = "PlayerHealth";
-	string num_lives = "NumLives";
-	string selected_weapon = "SelectedWeapon";
+
+	// use string name of checkpoint for level restart
 
 	//UICanvas access
 	public GameObject UICanvas;
@@ -36,7 +38,7 @@ public class UIControl : MonoBehaviour {
 		} else {
 			instance = this;
 		}
-
+			
 		// not used yet but gives easy access to the entire UI display
 		UICanvas = GameObject.Find ("UICanvas");
 
@@ -73,8 +75,8 @@ public class UIControl : MonoBehaviour {
 		healthBar = GameObject.FindGameObjectWithTag ("HealthUI");
 		score = GameObject.FindGameObjectWithTag ("ScoreUI").gameObject.GetComponent<Text>();
 
-		if (PlayerPrefs.HasKey (highscore)) {
-			score.text = PlayerPrefs.GetInt (highscore).ToString ();
+		if (PlayerPrefs.HasKey (GameController.Instance.highscore)) {
+			score.text = PlayerPrefs.GetInt (GameController.Instance.highscore).ToString ();
 		} else {
 			score.text = "0000";
 		}
@@ -121,6 +123,7 @@ public class UIControl : MonoBehaviour {
 		for (int i = 1; i < allWeapons.Length; i++) {
 			selectedWeapon = i;
 			SetAmmo ((ammo - GetAmmo ()));
+			ammo = ammo / 2;
 		}
 		selectedWeapon = 0;
 	}
@@ -196,23 +199,39 @@ public class UIControl : MonoBehaviour {
         return ammoValue;
     }
 
+	// use this to calculate damage (-ve values) or healing (+ve values)
 	public void AdjustHealth (float amount) {
-		healthBar.GetComponent<Slider> ().value += amount;
+		float newHealth = GetHealth () + amount;
+		if (newHealth < 0f) {
+			newHealth = 0f;
+		} else if (newHealth > 100f) {
+			newHealth = 100f;
+		}
+		healthBar.GetComponent<Slider> ().value = newHealth;
 	}
 
-	public void SetHealth (float amount){
-		healthBar.GetComponent<Slider> ().value = amount;
+	// use this to quickly set health to a specific value at beginning of rounds, or whereever necessary
+	// becareful to only use legal values
+	public void SetHealth (float value){
+		healthBar.GetComponent<Slider> ().value = value;
 	}
 
 	public float GetHealth (){
 		return healthBar.GetComponent<Slider> ().value;
 	}
 
+	public bool PlayerIsDead (float damage){
+		AdjustHealth (damage);
+		if (GetHealth() == 0f) {
+			return true;
+		}
+		return false;
+	}
+
 	public void AddScore (int s){
 		try{
-			Text scoreDisplay = GameObject.Find("HighScoreText").gameObject.GetComponent<Text>();
-			int score = int.Parse(scoreDisplay.text);
-			scoreDisplay.text = (score + s).ToString();
+			int currValue = int.Parse(score.text);
+			score.text = (currValue + s).ToString();
 		}catch{
 			print ("Could not ADD to score");
 		}
@@ -220,14 +239,53 @@ public class UIControl : MonoBehaviour {
 
 	public void SetScore (int newS){
 		try {
-			Text scoreDisplay = GameObject.Find("HighScoreText").gameObject.GetComponent<Text>();
-			scoreDisplay.text = newS.ToString();
+			score.text = newS.ToString ();
 		} catch{
 			print ("Could not SET score");
 		}
 	}
 
-	public void SaveGameState(){
+	public string GetScore (){
+		return score.text;
+	}
+
+	public void SaveToScores (){
+		// not a pretty method, hopefully will improve later
+		string s = PlayerPrefs.GetString (GameController.Instance.allScores);
+		string[] all = s.Split (new string[] {"\n"}, System.StringSplitOptions.None);
+		List<int> intScores = new List<int>();
+		int currScore;
+		try {
+			currScore = int.Parse(score.text);
+		}catch{
+			print ("could not fetch score");
+			return;
+		}
+		foreach (string v in all){
+			if (v == "") {
+				continue;
+			}
+			intScores.Add (int.Parse (v));
+		}
+
+		intScores.Add (currScore);
+
+		intScores.Sort ();
+		intScores.Reverse ();
+
+		var builder = new StringBuilder ();
+		intScores.ForEach (x => builder.Append (x+"\n"));
+		var res = builder.ToString ();
+
+		PlayerPrefs.DeleteKey (GameController.Instance.allScores);
+		PlayerPrefs.SetString (GameController.Instance.allScores, res);
+
+
+		//Array.Sort
+		//allScores.Split ('\n');
+	}
+
+	public void SaveGameStateUI(){
 		// save ammo
 		for (int i = 0; i < allWeapons.Length; i++) {
 			string name = allWeapons [i].gameObject.name;
@@ -237,10 +295,30 @@ public class UIControl : MonoBehaviour {
 		}
 
 		// rest of stuff
-		PlayerPrefs.SetInt ("PlayerScore", int.Parse(score.text));
-		PlayerPrefs.SetFloat ("PlayerHealth", healthBar.gameObject.GetComponent<Slider>().value);
-		PlayerPrefs.SetInt ("NumLives", 3);
-		PlayerPrefs.SetInt ("SelectedWeapon", selectedWeapon);
+		PlayerPrefs.SetInt (GameController.Instance.highscore, int.Parse(score.text));
+		PlayerPrefs.SetFloat (GameController.Instance.health, GetHealth ());
+		//print ("saving score: "+ PlayerPrefs.GetInt(GameController.Instance.highscore.ToString()));
+		//print ("saving health: " + PlayerPrefs.GetFloat(GameController.Instance.health.ToString()));
+	}
+
+	public void LoadGameStateUI (){
+		// load ammo
+		for (int i = 0; i < allWeapons.Length; i++) {
+			string name = allWeapons [i].gameObject.name;
+			if (name == "Gun1"){ continue; }
+			if (PlayerPrefs.HasKey (name)) {
+				string ammo = PlayerPrefs.GetString (name);
+				allWeapons [i].gameObject.GetComponentInChildren<Text> ().text = ammo;
+			} else {
+				print ("Could not find gun in PlayerPrefs: " + name);
+			}
+		}
+
+		SetScore (PlayerPrefs.GetInt(GameController.Instance.highscore));
+		SetHealth (PlayerPrefs.GetFloat(GameController.Instance.health));
+		print ("Set score: " + PlayerPrefs.GetInt (GameController.Instance.highscore).ToString ());
+		print ("set Health " + PlayerPrefs.GetFloat (GameController.Instance.health).ToString());
+		// load the rest
 	}
 
 	public void DestroyUI(){

@@ -6,6 +6,10 @@ public class LoadOnClick : MonoBehaviour {
 
 	//public GameObject loadingImage;
 
+	public void TryLastlevel (){
+		SceneManager.LoadScene (GameController.Instance.GetLastLevelName ());
+	}
+
 	public void LoadScene(string level)
 	{
 		//loadingImage.SetActive(true);
@@ -14,5 +18,14 @@ public class LoadOnClick : MonoBehaviour {
 
 	public void QuitGame (){
 		Application.Quit ();
+	}
+
+	public void ContinueOnClick (){
+		GameController.Instance.Continue ();
+	}
+
+	public void SaveScoreQuit (string name){
+		UIControl.Instance.SaveToScores ();
+		LoadScene (name);
 	}
 }
