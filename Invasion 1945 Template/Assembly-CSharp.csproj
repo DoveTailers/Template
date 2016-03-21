@@ -77,6 +77,9 @@
      <Compile Include="Assets\Scripts\AsteroidBoundary.cs" />
      <Compile Include="Assets\Scripts\AsteroidMovement.cs" />
      <Compile Include="Assets\Scripts\BlurControl.cs" />
+     <Compile Include="Assets\Scripts\Boss_Astorid_DestorybyContact.cs" />
+     <Compile Include="Assets\Scripts\Boss_Astorid_Script.cs" />
+     <Compile Include="Assets\Scripts\Boss_Puzzle_onCollect.cs" />
      <Compile Include="Assets\Scripts\BulletMovement3D.cs" />
      <Compile Include="Assets\Scripts\Bullet_DestoryByContact.cs" />
      <Compile Include="Assets\Scripts\CollisionDetection.cs" />
@@ -91,6 +94,7 @@
      <Compile Include="Assets\Scripts\EnemySwerve.cs" />
      <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\FlyingAsteroids.cs" />
+     <Compile Include="Assets\Scripts\GameController_Boss.cs" />
      <Compile Include="Assets\Scripts\GameController_Wave.cs" />
      <Compile Include="Assets\Scripts\GameController_Wave2.cs" />
      <Compile Include="Assets\Scripts\GravityScript.cs" />
@@ -103,6 +107,7 @@
      <Compile Include="Assets\Scripts\PuzzleBullets.cs" />
      <Compile Include="Assets\Scripts\RemoveStaleObjects.cs" />
      <Compile Include="Assets\Scripts\ScrollingBackground.cs" />
+     <Compile Include="Assets\Scripts\Shootable_BlockByContact.cs" />
      <Compile Include="Assets\Scripts\Shootable_DestoryByContact.cs" />
      <Compile Include="Assets\Scripts\SpawnAsteroids.cs" />
      <Compile Include="Assets\Scripts\TestAxis.cs" />

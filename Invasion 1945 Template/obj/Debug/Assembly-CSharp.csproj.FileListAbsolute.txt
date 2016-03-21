@@ -40,3 +40,24 @@ C:\Users\artem\Documents\unity-projects\Template\Invasion 1945 Template\Temp\bin
 C:\Users\artem\Documents\unity-projects\Template\Invasion 1945 Template\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\artem\Documents\unity-projects\Template\Invasion 1945 Template\obj\Debug\Assembly-CSharp.dll
 C:\Users\artem\Documents\unity-projects\Template\Invasion 1945 Template\obj\Debug\Assembly-CSharp.pdb
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEditor.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEngine.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEngine.Networking.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Unity.CecilTools.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEngine.xml
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEditor.xml
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEngine.UI.xml
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\obj\Debug\Assembly-CSharp.dll
+C:\Users\FlamyPow\Documents\Invasion 1945\Invasion 1945 1.0\Invasion 1945 Template\obj\Debug\Assembly-CSharp.pdb
