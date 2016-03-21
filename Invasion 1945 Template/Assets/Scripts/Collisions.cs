@@ -10,7 +10,8 @@ public class Collisions : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		Debug.Log ("in start");
+		Collisions.checkpoint = 0;
 	}
 
 	// Update is called once per frame
@@ -25,7 +26,7 @@ public class Collisions : MonoBehaviour {
 
 			if(restartTimer >= restartDelay)
 			{
-				
+				Collisions.checkpoint = 0;
 				SceneManager.LoadScene("Puzzle_2");
 			}
 
