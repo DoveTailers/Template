@@ -117,6 +117,7 @@
      <Compile Include="Assets\Scripts\basic_enemy_forward.cs" />
      <Compile Include="Assets\Scripts\basic_enemy_sideways.cs" />
      <Compile Include="Assets\Scripts\basic_homingMissle_mover.cs" />
+     <Compile Include="Assets\UICollider.cs" />
      <None Include="Assets\Shaders\WaterBlurFinal.shader" />
      <None Include="Assets\MusicFiles\Zero Gravity\Zero Gravity_ReadMe.txt" />
      <None Include="Assets\Shaders\WaterBlurModified.shader" />

@@ -21,8 +21,17 @@ public class GameController_Boss : MonoBehaviour
     public bool right_done = false;
     public bool setup = false;
     public float movespeed;
+
+	private bool isBossDead;
+
+	private PauseMenu pauseScript;
+
     void Start()
     {
+		Time.timeScale = 0f;
+		pauseScript = GameObject.Find ("PauseMenu").gameObject.GetComponent<PauseMenu> ();
+		pauseScript.Continue ();
+		isBossDead = false;
         boss = GameObject.Find("Boss_01");
         core = GameObject.Find("Boss_01/core");
         canvas = GameObject.Find("Boss_01/core/Canvas");
@@ -37,6 +46,7 @@ public class GameController_Boss : MonoBehaviour
 
     void Update()
     {
+		
         if (shield_destoryed == true)
         {
             canvas = GameObject.Find("Boss_01/core/Canvas");

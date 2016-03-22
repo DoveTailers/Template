@@ -21,10 +21,10 @@ public class Boss_Astorid_DestorybyContact: MonoBehaviour {
             if (UIControl.Instance.PlayerIsDead(astoridDamage))
             {
                 print("player has died from astorid damage");
-
+				Destroy(other.gameObject);
                 GameController.Instance.PlayerDied();
-                Instantiate(explosion, other.transform.position, other.transform.rotation);
-                Destroy(other.gameObject);
+                
+                
             }
 
         }

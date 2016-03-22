@@ -120,6 +120,7 @@ public class PauseMenu : MonoBehaviour {
 			isPaused = false;
 			Time.timeScale = 1f;
 			print ("quitting");
+			PlayerPrefs.SetInt (GameController.Instance.highscore, 0);
 			SceneManager.LoadScene ("mainmenub");
 		} else {
 			dialogStatus = "";
@@ -130,11 +131,20 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Save (){
 		// save needed variables to PlayerPrefs
+		GameController.Instance.DisplayMessage ("SAVED!"); 
 		GameController.Instance.SaveGameState();
 	}
 
 	public void Load (){
 		// loaded needed PlayerPrefs
+		dialogStatus = "";
+		isPaused = false;
+		GameController.Instance.DisplayMessage ("LOADING...");
+		delayLoad ();
+	}
+
+	IEnumerator delayLoad (){
+		yield return new WaitForSeconds (4);
 		GameController.Instance.LoadGame();
 	}
 }

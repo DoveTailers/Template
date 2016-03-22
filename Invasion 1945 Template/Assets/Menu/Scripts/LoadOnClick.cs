@@ -26,6 +26,7 @@ public class LoadOnClick : MonoBehaviour {
 
 	public void SaveScoreQuit (string name){
 		UIControl.Instance.SaveToScores ();
+		PlayerPrefs.SetInt (GameController.Instance.highscore, 0);
 		LoadScene (name);
 	}
 }

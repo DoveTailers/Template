@@ -34,16 +34,16 @@ public class MusicController : MonoBehaviour {
         	instance = this;
      	}
 
-		//initialize variables, currSong will need to be modified based on scene
-		musicPlayer = GameObject.Find("MusicPlayer");
-		defaultSong = musicPlayer.GetComponent <AudioSource> ();
-		currSong = defaultSong;
-
 		//preserve the instance throughout scene change
 		DontDestroyOnLoad(this.gameObject);
  	}
 
 	void Start (){
+		//initialize variables, currSong will need to be modified based on scene
+		musicPlayer = GameObject.Find("MusicPlayer");
+		defaultSong = musicPlayer.GetComponent <AudioSource> ();
+		currSong = defaultSong;
+
 		// initialized in GamePreferences
 		isMusicOn = false;
 		bool play = GamePreferences.GetMusicState () == 1 ? true : false;
