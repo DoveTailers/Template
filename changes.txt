@@ -1,0 +1,13 @@
+things added:
+scenes: Boss
+
+scripts: 
+Boss_Astorid_DestorybyContact
+Boss_Astorid_Script
+Boss_Puzzle_onCollect
+GameController_Boss
+Shootable_BlockByContact
+
+sprites: 
+sprite_sheet_enemy_trans -Copy
+sprite_sheet_flipped
