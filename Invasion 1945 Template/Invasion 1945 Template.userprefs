@@ -1,18 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Puzzle1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Menu\Scripts\UIControl.cs">
     <Files>
-      <File FileName="Assets\Scripts\DestoryByContact.cs" Line="25" Column="47" />
-      <File FileName="Assets\Scripts\Shootable_DestoryByContact.cs" Line="42" Column="1" />
-      <File FileName="Assets\Menu\Scripts\GameController.cs" Line="30" Column="36" />
-      <File FileName="Assets\Menu\Scripts\UIControl.cs" Line="259" Column="38" />
-      <File FileName="Assets\Menu\Scripts\PauseMenu.cs" Line="119" Column="39" />
-      <File FileName="Assets\Scripts\GameController_Wave.cs" Line="47" Column="39" />
-      <File FileName="Assets\Menu\Scripts\LoadOnClick.cs" Line="29" Column="20" />
-      <File FileName="Assets\Menu\Scripts\MusicController.cs" Line="18" Column="24" />
-      <File FileName="Assets\Scripts\CollisionDetection2D.cs" Line="28" Column="1" />
-      <File FileName="Assets\Scripts\TestAxis.cs" Line="16" Column="35" />
-      <File FileName="Assets\Scripts\Puzzle1.cs" Line="23" Column="46" />
+      <File FileName="Assets\Menu\Scripts\GameController.cs" Line="99" Column="42" />
+      <File FileName="Assets\Scripts\TestAxis.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Collisions.cs" Line="14" Column="33" />
+      <File FileName="Assets\Menu\Scripts\PauseMenu.cs" Line="86" Column="2" />
+      <File FileName="Assets\Menu\Scripts\UIControl.cs" Line="330" Column="47" />
+      <File FileName="Assets\Scripts\DestoryByContact.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Shootable_DestoryByContact.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameController_Wave.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Puzzle1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="40" Column="40" />
+      <File FileName="Assets\Scripts\CollisionDetection.cs" Line="22" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

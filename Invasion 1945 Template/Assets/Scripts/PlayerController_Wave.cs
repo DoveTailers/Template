@@ -23,38 +23,40 @@ public class PlayerController_Wave : MonoBehaviour {
 	public float fireRate;
 	public int bulletType;
 
+	private bool isFiring;
+
 	private float nextFire;
 	
 	void Update ()
 	{
-		if (Input.GetButton("Fire1") && Time.time > nextFire)
-		{
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
-			if(bulletType == 0)
-			{
-				Instantiate(shot1, shotSpawn.position, shotSpawn.rotation);
-			}
-			else if(bulletType == 1)
-			{
-                if (UIControl.Instance.GetAmmo() > 0)
-                {
-                    Instantiate(shot2_a, shotSpawn.position, shotSpawn.rotation);
-                    Instantiate(shot2_b, shotSpawn.position, shotSpawn.rotation);
-                    UIControl.Instance.SetAmmo(-1);
-                }
-                else {
+			if (bulletType == 0 && !UIControl.Instance.IsOverheat ()) {
+				isFiring = true;
+				UIControl.Instance.UpdateGunFill (5f);
+				Instantiate (shot1, shotSpawn.position, shotSpawn.rotation);
+			} else if (bulletType == 1) {
+
+				if (UIControl.Instance.GetAmmo () > 0) {
+					Instantiate (shot2_a, shotSpawn.position, shotSpawn.rotation);
+					Instantiate (shot2_b, shotSpawn.position, shotSpawn.rotation);
+					UIControl.Instance.SetAmmo (-1);
+				} else {
                     
-                    if (UIControl.Instance.ChangeWeaponTo(0))
-                    {
-                        if (bulletType != 0)
-                        {
-                            bulletType = 0;
-                        }
+					if (UIControl.Instance.ChangeWeaponTo (0)) {
+						if (bulletType != 0) {
+							bulletType = 0;
+						}
                         
-                    }
-                }
+					}
+				}
 				
                 
+			}
+		} else {
+			isFiring = false;
+			if (!UIControl.Instance.IsGunZero () && Time.time > nextFire){
+				UIControl.Instance.UpdateGunFill (-1f);
 			}
 		}
 

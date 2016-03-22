@@ -22,6 +22,10 @@ public class UIControl : MonoBehaviour {
 	public GameObject healthBar;
 	public Text score;
 
+	// for gunfill
+	public Slider gunSlider;
+	public Image gunFill;
+
 	// instantiate UIControl to be used by GameController Script
 	private static UIControl instance = null;
 	// fetch the instance to be called by other scripts
@@ -336,6 +340,43 @@ public class UIControl : MonoBehaviour {
 			count.text = "";
 		} else {
 			count.text = num.ToString ();
+		}
+	}
+
+	public bool IsOverheat (){
+		if (gunSlider.value >= gunSlider.maxValue) {
+			return true;
+		}
+		return false;
+	}
+
+	public bool IsGunZero (){
+		if (gunSlider.value <= 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public void UpdateGunFill (float val){
+		gunSlider.value += val;
+		if (IsOverheat ()) {
+			gunSlider.value = gunSlider.maxValue;
+		} else if (IsGunZero ()) {
+			gunSlider.value = 0;
+		}
+
+		// change color
+		if (gunSlider.value < (gunSlider.maxValue / 3f)) {
+			// cool
+			gunFill.color = Color.blue;
+
+		} else if (gunSlider.value < (gunSlider.maxValue / 1.5f)) {
+			// warm
+			gunFill.color = Color.yellow;
+
+		} else {
+			// hot
+			gunFill.color = new Color(0.58f, 0.109f, 0.109f);
 		}
 	}
 }
