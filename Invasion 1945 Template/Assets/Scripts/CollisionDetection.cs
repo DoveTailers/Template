@@ -31,6 +31,6 @@ public class CollisionDetection : MonoBehaviour {
 			Instantiate(Explosion, this.gameObject.transform.position, Quaternion.identity);
 			collision = true;
 		}
-		TestAxis.numOfDeaths++;
+		GameController.Instance.puzzle1NumOfDeaths++;
 	}
 }

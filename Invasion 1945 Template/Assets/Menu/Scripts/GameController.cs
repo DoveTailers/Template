@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour {
 	public string gun2 = "Gun2";
 	public string levelReached = "LevelReached";
 	public string checkpointKey = "Checkpoint";
+	public bool puzzle1Checkpoint = false;
+	public int puzzle1NumOfDeaths = 0;
 
 	// holds the actual scene names of scene and checkpoint
 	public string lastLevelName;
@@ -102,6 +104,8 @@ public class GameController : MonoBehaviour {
 
 		if (level < 6) {
 			//print ("Menus");
+			puzzle1NumOfDeaths = 0;
+			puzzle1Checkpoint = false;
 
 		} else {
 			// remember the scene name

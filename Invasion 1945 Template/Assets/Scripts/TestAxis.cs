@@ -29,10 +29,10 @@ public class TestAxis : MonoBehaviour {
 	public static bool doneLevel2Transition = false;
 	private float spaceshipInitYPos = 0f;
 	public static int blackHoleCount = 0;
-	public static int numOfDeaths = 0;
 
 	// Use this for initialization
 	void Start () {
+		StartCoroutine (fade ());
 		initialCameraPosYMin = camera.transform.position.y;
 		initialCameraPos = camera.transform.position;
 		camHeight = Camera.main.orthographicSize * 2f;
@@ -43,13 +43,13 @@ public class TestAxis : MonoBehaviour {
 		doneLevel2Transition = false;
 		level2 = false;
 
-		if(Collisions.checkpoint == 1) {
+		if(GameController.Instance.puzzle1Checkpoint) {
 			betweenLevels = true;
 			camera.transform.position = new Vector3 (camera.transform.position.x, camera.transform.position.y + 13, camera.transform.position.z);
 			spaceShipRigidBody.transform.position = new Vector3 (spaceShipRigidBody.transform.position.x + 2, spaceShipRigidBody.transform.position.y + 13, spaceShipRigidBody.transform.position.z);
 		}
 		GameObject[] innerAsteroids = GameObject.FindGameObjectsWithTag ("InnerAsteroids");
-		if (numOfDeaths > 2 && (innerAsteroids.Length > 0)) {
+		if (GameController.Instance.puzzle1NumOfDeaths > 2 && (innerAsteroids.Length > 0)) {
 			foreach (GameObject asteroid in innerAsteroids) {
 				Destroy (asteroid);
 			}
@@ -152,13 +152,18 @@ public class TestAxis : MonoBehaviour {
 					spaceShipRigidBody.position = Vector3.Slerp (spaceShipRigidBody.position, targetPosition2, Time.deltaTime * 1.8f);
 					level2 = true;
 					betweenLevels = false;
-					Collisions.checkpoint = 1;
+					GameController.Instance.puzzle1Checkpoint = true;
 				}
 				initialCameraPosYMin = camera.transform.position.y;
 			}
 		}
 
 
+	}
+
+	public IEnumerator fade() {
+		float fadeTime = GameObject.Find ("GameController").GetComponent<Fading> ().BeginFade (-1);
+		yield return new WaitForSeconds (fadeTime);
 	}
 
 }
