@@ -26,6 +26,11 @@ public class UIControl : MonoBehaviour {
 	public Slider gunSlider;
 	public Image gunFill;
 
+	public Image statsui;
+	public Image healthback;
+	public Image statsbar;
+
+
 	// instantiate UIControl to be used by GameController Script
 	private static UIControl instance = null;
 	// fetch the instance to be called by other scripts
@@ -48,24 +53,6 @@ public class UIControl : MonoBehaviour {
 
 		// initialize the weapons array and [ammo count from PlayerPrefs] NOT USED RIGHT NOW
 		// allWeapons = GameObject.FindGameObjectsWithTag("GunUI");
-//		for (int i = 0; i < allWeapons.Length; i++) {
-//
-//			string name = allWeapons [i].gameObject.name;
-//			// Gun 1 has no ammo
-//			if (name == "Gun1"){ 
-//				// incase populating array results in gun1 with different index
-//				gun1 = i;
-//				continue; 
-//			}
-//
-//			Text textBox = allWeapons [i].gameObject.GetComponentInChildren <Text> ();
-//
-//			if (PlayerPrefs.HasKey (name)) {
-//				textBox.text = PlayerPrefs.GetInt(name).ToString();
-//			} else {
-//				print ("error: PlayerPrefs ammocount not setup for " + allWeapons [i]);
-//			}
-//		}
 
 		// get the current weapon
 		selectedWeapon = 0;
@@ -79,14 +66,20 @@ public class UIControl : MonoBehaviour {
 		healthBar = GameObject.FindGameObjectWithTag ("HealthUI");
 		score = GameObject.FindGameObjectWithTag ("ScoreUI").gameObject.GetComponent<Text>();
 
-		if (PlayerPrefs.HasKey (GameController.Instance.highscore)) {
-			score.text = PlayerPrefs.GetInt (GameController.Instance.highscore).ToString ();
+		if (PlayerPrefs.HasKey ("PlayerScore")) {
+			score.text = PlayerPrefs.GetInt ("PlayerScore").ToString ();
 		} else {
 			score.text = "0000";
 		}
 
 		//preserve the instance throughout scene change
 		DontDestroyOnLoad(this.gameObject);
+	}
+
+	void Start(){
+		statsui = GameObject.FindGameObjectWithTag ("StatsUI").gameObject.GetComponent<Image>();
+		healthback = GameObject.FindGameObjectWithTag ("HealthBack").gameObject.GetComponent<Image>();
+		statsbar = GameObject.FindGameObjectWithTag ("StatsBar").gameObject.GetComponent<Image>();
 	}
 
 	// Update is called once per frame
@@ -378,6 +371,22 @@ public class UIControl : MonoBehaviour {
 			// hot
 			gunFill.color = new Color(0.58f, 0.109f, 0.109f);
 		}
+	}
+
+	public void FadeStats (){
+		// normal Statsbar == 100, 5
+		// HealthBack == 255, 5
+		// StatsUI == 255, 10
+
+		statsui.CrossFadeAlpha (.039f, .5f, false);
+		healthback.CrossFadeAlpha (.019f, .5f, false);
+		statsbar.CrossFadeAlpha (.019f, .5f, false);
+	}
+
+	public void UnFadeStats(){
+		statsui.CrossFadeAlpha (1f, .5f, false);
+		healthback.CrossFadeAlpha (1f, .5f, false);
+		statsbar.CrossFadeAlpha (.8f, .5f, false);
 	}
 }
 

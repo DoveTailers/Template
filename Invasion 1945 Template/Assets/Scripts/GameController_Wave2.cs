@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameController_Wave2 : MonoBehaviour {
 
@@ -10,6 +11,12 @@ public class GameController_Wave2 : MonoBehaviour {
 	private GameObject EnemySpawnObject;
 	public float StartWaitTime;
 	public float StopWaitTime;
+	//added by artem
+	public float NextWaitTime;
+	public float WaveWait4;
+	public float WaveWait5;
+	public GameObject hazard2;
+	public GameObject hazard1;
 
 	void Start () {
 
@@ -17,6 +24,23 @@ public class GameController_Wave2 : MonoBehaviour {
 		EnemySpawnObject = gameObject.FindObject ("EnemySpawnerOb");
 		StartCoroutine (SpawnRandomToggle(StartWaitTime));
 		StartCoroutine (SpawnRandomToggle(StopWaitTime));
+
+		StartCoroutine (SpawnWaves (spawnValues3, waveWait1, hazard1));
+		StartCoroutine (SpawnWaves (spawnValues2, waveWait1, hazard1));
+		StartCoroutine (SpawnWaves (spawnValues, waveWait1, hazard1));
+
+		StartCoroutine (SpawnWaves (spawnValues2, waveWait2, hazard1));
+		//StartCoroutine (SpawnWaves (spawnValues, waveWait2, hazard2));
+
+		StartCoroutine (SpawnWaves (spawnValues3, WaveWait4, hazard1));
+
+		StartCoroutine (SpawnWaves (spawnValues2, waveWait3, hazard2));
+		StartCoroutine (SpawnWaves (spawnValues, waveWait3, hazard1));
+
+		StartCoroutine (SpawnWaves (spawnValues3, WaveWait5, hazard1));
+
+
+		StartCoroutine (Next(NextWaitTime));
 	}
 
 	IEnumerator SpawnWaves (Vector2 sv, float wWait, GameObject ha) {
@@ -32,5 +56,17 @@ public class GameController_Wave2 : MonoBehaviour {
 			EnemySpawnObject.SetActive (!EnemySpawnObject.activeInHierarchy);
 		}
 
+	}
+
+	IEnumerator Next(float waittime) {
+		yield return new WaitForSeconds (waittime);
+		if (!GameController.Instance.IsPlayerDead ()) {
+			print ("moving to next wave");
+			UIControl.Instance.AddScore (1500);
+			SceneManager.LoadScene ("Boss");
+			//float fadeTime = GameObject.Find ("GameController").GetComponent<Fading> ().BeginFade (1);
+			//yield return new WaitForSeconds (fadeTime);
+			//			GameController.Instance.SaveGameState ();
+		}
 	}
 }

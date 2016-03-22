@@ -26,7 +26,11 @@ public class PlayerController_Wave : MonoBehaviour {
 	private bool isFiring;
 
 	private float nextFire;
-	
+
+	void Awake (){
+		isFiring = false;
+	}
+
 	void Update ()
 	{
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {

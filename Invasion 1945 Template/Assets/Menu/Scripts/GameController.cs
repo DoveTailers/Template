@@ -52,7 +52,6 @@ public class GameController : MonoBehaviour {
 		checkpoint = "";
 		playerDead = false;
 
-		PlayerPrefs.DeleteKey (allScores);
 		if (!PlayerPrefs.HasKey (allScores)) {
 			// made up 
 			PlayerPrefs.SetString (allScores, "\n");
@@ -110,6 +109,7 @@ public class GameController : MonoBehaviour {
 		} else {
 			// remember the scene name
 			SetLastLevelName ();
+			UIControl.Instance.LoadGameStateUI ();
 
 			if (level == 9) {
 			
@@ -120,14 +120,14 @@ public class GameController : MonoBehaviour {
 			} else if (level == 10) {
 
 				print ("wave2");
-				UIControl.Instance.LoadGameStateUI ();
 
 		
 			} else if (level == 8) {
 			
 				print ("Puzzle 2");
-				UIControl.Instance.LoadGameStateUI ();
-			} 
+			} else if (level == 11) {
+				Debug.Log("Bossfight");
+			}
 
 		}
 	}
@@ -169,7 +169,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void LoadGame (){
+		Debug.Log ("Loading game, levelreached: " + levelReached);
 		SceneManager.LoadScene (PlayerPrefs.GetString (levelReached));
+		//Time.timeScale = 1f;
 	}
 
 	public void Continue (){
@@ -179,6 +181,10 @@ public class GameController : MonoBehaviour {
 			string m = "NO SAVED GAME AVAILABLE";
 			StartCoroutine (Message (m));
 		}
+	}
+
+	public void DisplayMessage (string m){
+		StartCoroutine (Message (m));
 	}
 
 	public string GetLastLevelName (){

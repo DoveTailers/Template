@@ -28,7 +28,7 @@ public class Shootable_DestoryByContact : MonoBehaviour {
 			Instantiate (explosion, transform.position, transform.rotation);
 			suicideScore = (int) gameObject.GetComponentInChildren<Slider> ().value;
 			UIControl.Instance.AddScore (suicideScore);
-			if (UIControl.Instance.PlayerIsDead (collisionDamage)) {
+			if (UIControl.Instance.PlayerIsDead ((-1f * (float) suicideScore))) {
 				GameController.Instance.PlayerDied ();
 				Instantiate (explosion, transform.position, transform.rotation);
 				Destroy (other.gameObject);
@@ -57,6 +57,12 @@ public class Shootable_DestoryByContact : MonoBehaviour {
 				eHealthScript = gameObject.GetComponentInChildren <EnemyHealth> ();
 				UIControl.Instance.AddScore (currScore);
 				if (eHealthScript.EnemyIsDead (currHit)) {
+					if (gameObject.name == "core"){
+						// boss died
+						UIControl.Instance.AddScore (5000);
+						// for now its game over
+						GameController.Instance.PlayerDied();
+					}
 					Instantiate (explosion, transform.position, transform.rotation);
 					Destroy (gameObject);
 				}
