@@ -20,6 +20,7 @@ public class Puzzle1 : MonoBehaviour {
 			timerText.text = "Stay alive for: " + Mathf.Round(level2Timer).ToString();
 			if (level2Timer < 0.0f) {
 				UIControl.Instance.AddScore (2000);
+				GameController.Instance.SaveGameState ();
 				GameController.Instance.puzzle1Checkpoint = false;
 
 				GameController.Instance.SaveGameState ();

@@ -62,7 +62,8 @@ public class GameController_Wave2 : MonoBehaviour {
 		yield return new WaitForSeconds (waittime);
 		if (!GameController.Instance.IsPlayerDead ()) {
 			print ("moving to next wave");
-			UIControl.Instance.AddScore (1500);
+			UIControl.Instance.AddScore (3000);
+			GameController.Instance.SaveGameState ();
 			SceneManager.LoadScene ("Boss");
 			//float fadeTime = GameObject.Find ("GameController").GetComponent<Fading> ().BeginFade (1);
 			//yield return new WaitForSeconds (fadeTime);
