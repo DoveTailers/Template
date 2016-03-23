@@ -19,6 +19,7 @@ public class PlayerController_Wave : MonoBehaviour {
 	public GameObject shot1;
 	public GameObject shot2_a;
 	public GameObject shot2_b;
+	public GameObject shot3;
 	public Transform shotSpawn;
 	public float fireRate;
 	public int bulletType;
