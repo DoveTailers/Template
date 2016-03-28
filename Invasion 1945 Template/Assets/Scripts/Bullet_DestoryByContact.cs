@@ -10,8 +10,7 @@ public class Bullet_DestoryByContact : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		if (other.tag == "Boundary")
-		{
+		if (other.tag == "Boundary") {
 			return;
 		}
 		if (other.tag == "Player") {

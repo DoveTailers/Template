@@ -12,10 +12,41 @@ public class Shootable_DestoryByContact : MonoBehaviour {
 	private int bulletScore = 4;
 	private float missleDamage = -10f;
 	private int missleScore = 10;
+	private float lazerDamage = -1.2f;
+	private int lazerScore = 1;
 	private float collisionDamage = -50f;
 	private int suicideScore;
-
+	private bool destProj = true;
 	public GameObject explosion;
+
+	void OnTriggerStay2D (Collider2D other) {
+		float currHit = 0f;
+		int currScore = 0;
+		if (other.tag == "Lazer") {
+			currHit = lazerDamage;
+			currScore = lazerScore;
+			try {
+				eHealthScript = gameObject.GetComponentInChildren <EnemyHealth> ();
+				UIControl.Instance.AddScore (currScore);
+				if (eHealthScript.EnemyIsDead (currHit)) {
+					if (gameObject.name == "core"){
+						// boss died
+						UIControl.Instance.AddScore (5000);
+						// for now its game over
+						GameController.Instance.PlayerDied();
+					}
+					Instantiate (explosion, transform.position, transform.rotation);
+					Destroy (gameObject);
+				}
+			} catch {
+				print ("could not get " + gameObject.ToString () + " Script!");
+				print ("script: " + eHealthScript.ToString());
+			}
+		} else {
+			return;
+		}
+	}
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		// added shootable tag to EnemyBullet_1 because I think another script takes care of it.
@@ -46,13 +77,19 @@ public class Shootable_DestoryByContact : MonoBehaviour {
 				//print (gameObject.ToString () + " was hit with Missle");
 				currHit = missleDamage;
 				currScore = missleScore;
-			} 
+			} else if (other.tag == "Lazer") {
+				currHit = lazerDamage;
+				currScore = lazerScore;
+				destProj = false;
+			}
 			// could add more bullet types above in an "else if"
 			else {
 				print (other.gameObject.ToString() + "did not match one of the bulletType tags"); 
 				return;
 			}
-			Destroy (other.gameObject);
+			if (destProj) {
+				Destroy (other.gameObject);
+			}
 			try {
 				eHealthScript = gameObject.GetComponentInChildren <EnemyHealth> ();
 				UIControl.Instance.AddScore (currScore);

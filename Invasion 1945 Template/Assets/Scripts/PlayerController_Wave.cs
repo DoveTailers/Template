@@ -19,6 +19,7 @@ public class PlayerController_Wave : MonoBehaviour {
 	public GameObject shot1;
 	public GameObject shot2_a;
 	public GameObject shot2_b;
+	public GameObject shot3;
 	public Transform shotSpawn;
 	public float fireRate;
 	public int bulletType;
@@ -36,6 +37,7 @@ public class PlayerController_Wave : MonoBehaviour {
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			if (bulletType == 0 && !UIControl.Instance.IsOverheat ()) {
+				
 				isFiring = true;
 				UIControl.Instance.UpdateGunFill (5f);
 				Instantiate (shot1, shotSpawn.position, shotSpawn.rotation);
@@ -46,16 +48,27 @@ public class PlayerController_Wave : MonoBehaviour {
 					Instantiate (shot2_b, shotSpawn.position, shotSpawn.rotation);
 					UIControl.Instance.SetAmmo (-1);
 				} else {
-                    
-					if (UIControl.Instance.ChangeWeaponTo (0)) {
-						if (bulletType != 0) {
-							bulletType = 0;
+					if (UIControl.Instance.ChangeWeapon (2)) {
+						if (bulletType != 2) {
+							bulletType = 2;
 						}
-                        
 					}
 				}
 				
                 
+			} else if (bulletType == 2) {
+				if (UIControl.Instance.GetAmmo () > 0) {
+					nextFire = Time.time + 1.2f;
+					Instantiate (shot3, new Vector3 (shotSpawn.position.x, shotSpawn.position.y + 1.85f, shotSpawn.position.z), shotSpawn.rotation);
+					//Destory(shot3.gameObject, 1.0f)
+					UIControl.Instance.SetAmmo (-1);
+				} else {
+					if (UIControl.Instance.ChangeWeaponTo (0)) {
+						if (bulletType != 0) {
+							bulletType = 0;
+						}
+					}
+				}
 			}
 		} else {
 			isFiring = false;
@@ -84,13 +97,13 @@ public class PlayerController_Wave : MonoBehaviour {
         {//button j
             if(UIControl.Instance.ChangeWeapon(-1))
             {
-                if (bulletType != 0)
+				if (bulletType == 1 || bulletType == 2)
                 {
                     bulletType--;
 
                 }
                 else {
-                    bulletType = 1;
+                    bulletType = 2;
                 }
             }
         }
@@ -98,11 +111,11 @@ public class PlayerController_Wave : MonoBehaviour {
         {//button k
             if(UIControl.Instance.ChangeWeapon(1))
             {
-                if (bulletType != 1)
+				if (bulletType == 0 || bulletType == 1)
                 {
                     bulletType++;
                 }
-                else if (bulletType == 1)
+                else if (bulletType == 2)
                 {
                     bulletType = 0;
                 }
