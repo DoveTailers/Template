@@ -2,14 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerWeaponLazer.cs">
     <Files>
+      <File FileName="Assets\Scripts\PlayerWeaponLazer.cs" Line="26" Column="23" />
       <File FileName="Assets\Menu\Scripts\VolumeControl.cs" Line="37" Column="1" />
       <File FileName="Assets\Menu\Scripts\MusicController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\Scripts\GameController.cs" Line="158" Column="30" />
-      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="61" Column="8" />
+      <File FileName="Assets\Menu\Scripts\GameController.cs" Line="12" Column="2" />
+      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="61" Column="32" />
       <File FileName="Assets\Menu\Scripts\UIControl.cs" Line="183" Column="56" />
-      <File FileName="Assets\Scripts\PlayerWeaponLazer.cs" Line="9" Column="30" />
-      <File FileName="Assets\Scripts\OuterBoundDestory_Wave.cs" Line="8" Column="27" />
-      <File FileName="Assets\Scripts\basic_bullet_mover.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

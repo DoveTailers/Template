@@ -37,6 +37,7 @@ public class PlayerController_Wave : MonoBehaviour {
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			if (bulletType == 0 && !UIControl.Instance.IsOverheat ()) {
+				
 				isFiring = true;
 				UIControl.Instance.UpdateGunFill (5f);
 				Instantiate (shot1, shotSpawn.position, shotSpawn.rotation);
@@ -57,7 +58,8 @@ public class PlayerController_Wave : MonoBehaviour {
                 
 			} else if (bulletType == 2) {
 				if (UIControl.Instance.GetAmmo () > 0) {
-					Instantiate (shot3, new Vector3 (shotSpawn.position.x, shotSpawn.position.y + 1.9f, shotSpawn.position.z), shotSpawn.rotation);
+					nextFire = Time.time + 1.2f;
+					Instantiate (shot3, new Vector3 (shotSpawn.position.x, shotSpawn.position.y + 1.85f, shotSpawn.position.z), shotSpawn.rotation);
 					//Destory(shot3.gameObject, 1.0f)
 					UIControl.Instance.SetAmmo (-1);
 				} else {
