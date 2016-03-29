@@ -263,16 +263,4 @@ public class GameController_Boss : MonoBehaviour
 
 	}
 
-	IEnumerator Next(float waittime)
-	{
-		yield return new WaitForSeconds(waittime);
-		if (!GameController.Instance.IsPlayerDead())
-		{
-			print("moving to next scene");
-			UIControl.Instance.AddScore(1500);
-			GameController.Instance.SaveGameState();
-			SceneManager.LoadScene("WinGame");
-		}
-	}
-
 }

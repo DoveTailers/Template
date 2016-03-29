@@ -41,6 +41,13 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Awake() {
+		if (cutSceneFromJS.pictures.Count == 0) {
+			Object[] textures = Resources.LoadAll("jpegs");
+			for(var i = 0; i < textures.Length; i++){
+				Debug.Log("found");
+				cutSceneFromJS.pictures.Add (textures [i]);
+			}
+		}
 		//preserve the old instance if one already exists
 		if (instance != null && instance != this) {
 			Destroy(this.gameObject);
@@ -100,15 +107,17 @@ public class GameController : MonoBehaviour {
 
 		playerDead = false;
 
-		if (level == 13) {
+		if (level == 13 || level == 15) {
 			// unlucky 13, transition
 			return;
 		}
 
 		// find stage song
 		MusicController.Instance.SwitchSong ();
-
-		if (level < 7) {
+		if (level == 14) {
+			return;
+		}
+		if (level < 8) {
 			//print ("Menus");
 			puzzle1NumOfDeaths = 0;
 			puzzle1Checkpoint = false;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Shootable_DestoryByContact : MonoBehaviour {
 
@@ -33,7 +34,7 @@ public class Shootable_DestoryByContact : MonoBehaviour {
 						// boss died
 						UIControl.Instance.AddScore (5000);
 						// for now its game over
-						GameController.Instance.PlayerDied();
+						SceneManager.LoadScene("WinGame");
 					}
 					Instantiate (explosion, transform.position, transform.rotation);
 					Destroy (gameObject);
@@ -103,7 +104,7 @@ public class Shootable_DestoryByContact : MonoBehaviour {
 						// boss died
 						UIControl.Instance.AddScore (5000);
 						// for now its game over
-						GameController.Instance.PlayerDied();
+						SceneManager.LoadScene("WinGame");
 					}
 					Instantiate (explosion, transform.position, transform.rotation);
 					Destroy (gameObject);
