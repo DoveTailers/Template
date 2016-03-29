@@ -40,6 +40,13 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Awake() {
+		if (cutSceneFromJS.pictures.Count == 0) {
+			Object[] textures = Resources.LoadAll("jpegs");
+			for(var i = 0; i < textures.Length; i++){
+				Debug.Log("found");
+				cutSceneFromJS.pictures.Add (textures [i]);
+			}
+		}
 		//preserve the old instance if one already exists
 		if (instance != null && instance != this) {
 			Destroy(this.gameObject);
