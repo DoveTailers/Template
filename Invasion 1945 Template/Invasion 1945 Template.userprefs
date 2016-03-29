@@ -1,8 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ExtensionMethods.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Bullet_DestoryByContact.cs">
     <Files>
-      <File FileName="Assets\ExtensionMethods.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Bullet_DestoryByContact.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\basic_homingMissle_mover.cs" Line="48" Column="35" />
+      <File FileName="Assets\Scripts\EnemyBullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="70" Column="7" />
+      <File FileName="Assets\Menu\Scripts\GameController.cs" Line="178" Column="54" />
+      <File FileName="Assets\Menu\Scripts\UIControl.cs" Line="303" Column="48" />
+      <File FileName="Assets\Menu\Scripts\PauseMenu.cs" Line="129" Column="3" />
+      <File FileName="Assets\Scripts\PlayerWeaponLazer.cs" Line="31" Column="1" />
+      <File FileName="Assets\Menu\Scripts\LoadOnClick.cs" Line="29" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

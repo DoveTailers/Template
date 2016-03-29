@@ -26,9 +26,9 @@ public class UIControl : MonoBehaviour {
 	public Slider gunSlider;
 	public Image gunFill;
 
-	public Image statsui;
-	public Image healthback;
-	public Image statsbar;
+	public RawImage statsui;
+	public RawImage healthback;
+	public RawImage statsbar;
 
 
 	// instantiate UIControl to be used by GameController Script
@@ -77,9 +77,9 @@ public class UIControl : MonoBehaviour {
 	}
 
 	void Start(){
-		statsui = GameObject.FindGameObjectWithTag ("StatsUI").gameObject.GetComponent<Image>();
-		healthback = GameObject.FindGameObjectWithTag ("HealthBack").gameObject.GetComponent<Image>();
-		statsbar = GameObject.FindGameObjectWithTag ("StatsBar").gameObject.GetComponent<Image>();
+		statsui = GameObject.FindGameObjectWithTag ("StatsUI").gameObject.GetComponent<RawImage>();
+		healthback = GameObject.FindGameObjectWithTag ("HealthBack").gameObject.GetComponent<RawImage>();
+		statsbar = GameObject.FindGameObjectWithTag ("StatsBar").gameObject.GetComponent<RawImage>();
 	}
 
 	// Update is called once per frame

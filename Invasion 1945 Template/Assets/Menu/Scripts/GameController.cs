@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 	public string highscore = "PlayerScore";
 	public string health = "PlayerHealth";
 	public string gun2 = "Gun2";
+	public string gun3 = "Gun3";
 	public string levelReached = "LevelReached";
 	public string checkpointKey = "Checkpoint";
 	public bool puzzle1Checkpoint = false;
@@ -109,11 +110,13 @@ public class GameController : MonoBehaviour {
 		} else {
 			// remember the scene name
 			SetLastLevelName ();
+			// loads the settings into all levels
 			UIControl.Instance.LoadGameStateUI ();
 
 			if (level == 9) {
 			
 				print ("Wave1");
+				// resets the settings THEN loads them
 				newGame ();
 				UIControl.Instance.LoadGameStateUI ();
 
@@ -145,6 +148,7 @@ public class GameController : MonoBehaviour {
 		PlayerPrefs.SetInt (highscore, 0);
 		PlayerPrefs.SetFloat (health, 100f);
 		PlayerPrefs.SetString (gun2, "40");
+		PlayerPrefs.SetString (gun3, "20");
 		PlayerPrefs.SetString (levelReached, level1);
 		PlayerPrefs.SetString (checkpointKey, checkpoint);
 		//PlayerPrefs.SetString ("Gun3", "10");
@@ -156,6 +160,7 @@ public class GameController : MonoBehaviour {
 		PlayerPrefs.DeleteKey (highscore);
 		PlayerPrefs.DeleteKey (health);
 		PlayerPrefs.DeleteKey (gun2);
+		PlayerPrefs.DeleteKey (gun3);
 		PlayerPrefs.DeleteKey (levelReached);
 		PlayerPrefs.DeleteKey (checkpointKey);
 	}
