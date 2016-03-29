@@ -49,7 +49,7 @@ public class GameController_Wave : MonoBehaviour {
 			yield return new WaitForSeconds (fadeTime);
 //			GameController.Instance.SaveGameState ();
 			GameController.Instance.SaveGameState ();
-			SceneManager.LoadScene ("Puzzle_2");
+			SceneManager.LoadScene ("Transition1");
 		}
 	}
 }
