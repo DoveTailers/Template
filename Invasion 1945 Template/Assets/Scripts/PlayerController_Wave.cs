@@ -48,9 +48,9 @@ public class PlayerController_Wave : MonoBehaviour {
 					Instantiate (shot2_b, shotSpawn.position, shotSpawn.rotation);
 					UIControl.Instance.SetAmmo (-1);
 				} else {
-					if (UIControl.Instance.ChangeWeapon (2)) {
-						if (bulletType != 2) {
-							bulletType = 2;
+					if (UIControl.Instance.ChangeWeaponTo (0)) {
+						if (bulletType != 0) {
+							bulletType = 0;
 						}
 					}
 				}

@@ -8,40 +8,41 @@ public class basic_homingMissle_mover : MonoBehaviour {
 	private Rigidbody2D rb;
 	public float windupTime = 1f;
 	private bool winding = false;
-	private bool targetFound = false;
+	//private bool targetFound = false;
 	private GameObject closestShootable;
 	public enum LR{Left, Right};
 	public LR current;
+	// added by artem, trying to reduce the number of bails
+	//private int failCount = 0;
+	private bool targetFound = false;
 	// Use this for initialization
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D> ();
 		StartCoroutine (Windup ());
 		rb.velocity = transform.up.normalized*initial_speed_down;
-		closestShootable = FindClosestShootable (); 
 	}
 	void Update()
 	{
-		if (!targetFound) {
-			if (closestShootable == null) {
-				if (winding) {
-					closestShootable = FindClosestShootable ();
-					if(current == LR.Right)
-					{
-						rb.AddForce(Vector3.right*1);
-					}
-					else{
-						rb.AddForce(Vector3.left*1);
-					}
-
-				} else {
-					rb.AddForce (Vector3.up * 7);
-					//cant find target, forfeit missle
+		if (closestShootable == null) {
+			if (winding) {
+				if(current == LR.Right)
+				{
+					rb.AddForce(Vector3.right*1);
 				}
+				else{
+					rb.AddForce(Vector3.left*1);
+				}
+
 			} else {
-				target = closestShootable.transform.position;
-				targetFound = true;
+				if (targetFound == false) {
+					closestShootable = FindClosestShootable ();
+				} else {
+					//lost target, forfeit missle
+					rb.AddForce (Vector3.up * 7);
+				}
 			}
 		} else {
+			targetFound = true;
 			if(winding)
 			{
 				if(current == LR.Right)
@@ -52,6 +53,7 @@ public class basic_homingMissle_mover : MonoBehaviour {
 					rb.AddForce(Vector3.left*1);
 				}
 			}else{
+				target = closestShootable.transform.position;
 				direction = (target - transform.position);
 				if(direction.y<1)
 				{

@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 	public string highscore = "PlayerScore";
 	public string health = "PlayerHealth";
 	public string gun2 = "Gun2";
+	public string gun3 = "Gun3";
 	public string levelReached = "LevelReached";
 	public string checkpointKey = "Checkpoint";
 	public bool puzzle1Checkpoint = false;
@@ -40,13 +41,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Awake() {
-		if (cutSceneFromJS.pictures.Count == 0) {
-			Object[] textures = Resources.LoadAll("jpegs");
-			for(var i = 0; i < textures.Length; i++){
-				Debug.Log("found");
-				cutSceneFromJS.pictures.Add (textures [i]);
-			}
-		}
 		//preserve the old instance if one already exists
 		if (instance != null && instance != this) {
 			Destroy(this.gameObject);
@@ -104,11 +98,17 @@ public class GameController : MonoBehaviour {
 		// 9 main_test
 		// 10 wave2
 
-		// find stage song
-		MusicController.Instance.SwitchSong ();
 		playerDead = false;
 
-		if (level < 6) {
+		if (level == 13) {
+			// unlucky 13, transition
+			return;
+		}
+
+		// find stage song
+		MusicController.Instance.SwitchSong ();
+
+		if (level < 7) {
 			//print ("Menus");
 			puzzle1NumOfDeaths = 0;
 			puzzle1Checkpoint = false;
@@ -116,23 +116,24 @@ public class GameController : MonoBehaviour {
 		} else {
 			// remember the scene name
 			SetLastLevelName ();
+			// loads the settings into all levels
 			UIControl.Instance.LoadGameStateUI ();
 
-			if (level == 9) {
+			if (level == 10) {
 			
 				print ("Wave1");
+				// resets the settings THEN loads them
 				newGame ();
 				UIControl.Instance.LoadGameStateUI ();
 
-			} else if (level == 10) {
-
+			} else if (level == 11) {
 				print ("wave2");
 
 		
-			} else if (level == 8) {
-			
+			} else if (level == 9) {
 				print ("Puzzle 2");
-			} else if (level == 11) {
+
+			} else if (level == 12) {
 				Debug.Log("Bossfight");
 			}
 
@@ -152,6 +153,7 @@ public class GameController : MonoBehaviour {
 		PlayerPrefs.SetInt (highscore, 0);
 		PlayerPrefs.SetFloat (health, 100f);
 		PlayerPrefs.SetString (gun2, "40");
+		PlayerPrefs.SetString (gun3, "20");
 		PlayerPrefs.SetString (levelReached, level1);
 		PlayerPrefs.SetString (checkpointKey, checkpoint);
 		//PlayerPrefs.SetString ("Gun3", "10");
@@ -163,6 +165,7 @@ public class GameController : MonoBehaviour {
 		PlayerPrefs.DeleteKey (highscore);
 		PlayerPrefs.DeleteKey (health);
 		PlayerPrefs.DeleteKey (gun2);
+		PlayerPrefs.DeleteKey (gun3);
 		PlayerPrefs.DeleteKey (levelReached);
 		PlayerPrefs.DeleteKey (checkpointKey);
 	}

@@ -26,9 +26,9 @@ public class UIControl : MonoBehaviour {
 	public Slider gunSlider;
 	public Image gunFill;
 
-	public Image statsui;
-	public Image healthback;
-	public Image statsbar;
+	public RawImage statsui;
+	public RawImage healthback;
+	public RawImage statsbar;
 
 
 	// instantiate UIControl to be used by GameController Script
@@ -77,9 +77,9 @@ public class UIControl : MonoBehaviour {
 	}
 
 	void Start(){
-		statsui = GameObject.FindGameObjectWithTag ("StatsUI").gameObject.GetComponent<Image>();
-		healthback = GameObject.FindGameObjectWithTag ("HealthBack").gameObject.GetComponent<Image>();
-		statsbar = GameObject.FindGameObjectWithTag ("StatsBar").gameObject.GetComponent<Image>();
+		statsui = GameObject.FindGameObjectWithTag ("StatsUI").gameObject.GetComponent<RawImage>();
+		healthback = GameObject.FindGameObjectWithTag ("HealthBack").gameObject.GetComponent<RawImage>();
+		statsbar = GameObject.FindGameObjectWithTag ("StatsBar").gameObject.GetComponent<RawImage>();
 	}
 
 	// Update is called once per frame
@@ -302,10 +302,12 @@ public class UIControl : MonoBehaviour {
 		// load ammo
 		for (int i = 0; i < allWeapons.Length; i++) {
 			string name = allWeapons [i].gameObject.name;
+
 			if (name == "Gun1"){ continue; }
 			if (PlayerPrefs.HasKey (name)) {
 				string ammo = PlayerPrefs.GetString (name);
 				allWeapons [i].gameObject.GetComponentInChildren<Text> ().text = ammo;
+				Debug.Log ("loading gun: " + name + " || with ammo: " + ammo);
 			} else {
 				print ("Could not find gun in PlayerPrefs: " + name);
 			}

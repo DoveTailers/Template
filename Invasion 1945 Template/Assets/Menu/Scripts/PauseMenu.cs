@@ -135,13 +135,16 @@ public class PauseMenu : MonoBehaviour {
 		GameController.Instance.SaveGameState();
 	}
 
-	public void Load (){
-		// loaded needed PlayerPrefs
-		dialogStatus = "";
-		isPaused = false;
-		GameController.Instance.DisplayMessage ("LOADING...");
-		delayLoad ();
-	}
+	// doesn't work. likely due to timescale, although delay load uses a coroutine that bypasses timescale, 
+	// gamecontroller does not. the solution would be to set timescale to 1 before loading or to run the 
+	// load game in gamecontroller as a coroutine
+//	public void Load (){
+//		// loaded needed PlayerPrefs
+//		dialogStatus = "";
+//		isPaused = false;
+//		GameController.Instance.DisplayMessage ("LOADING...");
+//		delayLoad ();
+//	}
 
 	IEnumerator delayLoad (){
 		yield return new WaitForSeconds (4);

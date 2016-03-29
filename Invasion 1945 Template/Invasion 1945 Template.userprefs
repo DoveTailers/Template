@@ -1,11 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/cutSceneFromJS.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerController_Wave.cs">
     <Files>
-      <File FileName="Assets/Scripts/CutScene.cs" Line="13" Column="40" />
-      <File FileName="Assets/Menu/Scripts/LoadOnClick.cs" Line="3" Column="35" />
-      <File FileName="Assets/Scripts/GameController_Boss.cs" Line="12" Column="28" />
-      <File FileName="Assets/Scripts/cutSceneFromJS.cs" Line="26" Column="30" />
+      <File FileName="Assets\Menu\Scripts\UIControl.cs" Line="310" Column="67" />
+      <File FileName="Assets\Scripts\PlayerController_Wave.cs" Line="52" Column="29" NotebookId="1" />
+      <File FileName="Assets\Menu\Scripts\GameController.cs" Line="133" Column="25" NotebookId="1" />
+      <File FileName="Assets\Scripts\ScrollingBackground.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\Scripts\RemoveStaleObjects.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\Scripts\PuzzleBullets.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\Scripts\PlayerWeaponLazer.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\Collision_BlockPlayer.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\Scripts\basic_homingMissle_mover.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
