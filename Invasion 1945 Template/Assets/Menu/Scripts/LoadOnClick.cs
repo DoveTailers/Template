@@ -7,7 +7,11 @@ public class LoadOnClick : MonoBehaviour {
 	//public GameObject loadingImage;
 
 	public void TryLastlevel (){
-		SceneManager.LoadScene (GameController.Instance.GetLastLevelName ());
+		try{
+			SceneManager.LoadScene (GameController.Instance.GetLastLevelName ());
+		}catch{
+			Debug.Log ("No previous level found");
+		}
 	}
 
 	public void LoadScene(string level)
@@ -25,8 +29,12 @@ public class LoadOnClick : MonoBehaviour {
 	}
 
 	public void SaveScoreQuit (string name){
-		UIControl.Instance.SaveToScores ();
-		PlayerPrefs.SetInt (GameController.Instance.highscore, 0);
+		try{
+			UIControl.Instance.SaveToScores ();
+			PlayerPrefs.SetInt (GameController.Instance.highscore, 0);
+		}catch{
+			Debug.Log ("Could not save score");
+		}
 		LoadScene (name);
 	}
 }

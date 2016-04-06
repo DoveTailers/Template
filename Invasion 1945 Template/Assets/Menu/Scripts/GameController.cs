@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour {
 	//private string puzzle1 = "puzzle_2";
 	//private string level2 = "wave2";
 
+	public bool isCreditsLoaded = false;
+
 	// all scripts with variables
 
 	private static GameController instance = null;
@@ -44,7 +46,7 @@ public class GameController : MonoBehaviour {
 		if (cutSceneFromJS.pictures.Count == 0) {
 			Object[] textures = Resources.LoadAll("jpegs");
 			for(var i = 0; i < textures.Length; i++){
-				Debug.Log("found");
+				//Debug.Log("found");
 				cutSceneFromJS.pictures.Add (textures [i]);
 			}
 		}
@@ -106,18 +108,23 @@ public class GameController : MonoBehaviour {
 		// 10 wave2
 
 		playerDead = false;
+		isCreditsLoaded = false;
 
-		if (level == 13 || level == 15) {
+		if (level == 12) {
 			// unlucky 13, transition
 			return;
 		}
 
 		// find stage song
 		MusicController.Instance.SwitchSong ();
-		if (level == 14) {
+		if (level == 13) {
+			isCreditsLoaded = true;
 			return;
 		}
-		if (level < 8) {
+		if (level == 0) {
+			// print ("Intro");
+
+		}else if (level < 8) {
 			//print ("Menus");
 			puzzle1NumOfDeaths = 0;
 			puzzle1Checkpoint = false;
@@ -128,21 +135,21 @@ public class GameController : MonoBehaviour {
 			// loads the settings into all levels
 			UIControl.Instance.LoadGameStateUI ();
 
-			if (level == 10) {
+			if (level == 8) {
 			
 				print ("Wave1");
 				// resets the settings THEN loads them
 				newGame ();
 				UIControl.Instance.LoadGameStateUI ();
 
-			} else if (level == 11) {
-				print ("wave2");
-
-		
 			} else if (level == 9) {
 				print ("Puzzle 2");
 
-			} else if (level == 12) {
+			} else if (level == 10) {
+				print ("wave2");
+
+		
+			} else if (level == 11) {
 				Debug.Log("Bossfight");
 			}
 
@@ -181,16 +188,24 @@ public class GameController : MonoBehaviour {
 
 	public void SaveGameState (){
 		// called savegamestate
-		ResetStats ();
-		SetLastLevelName ();
-		UIControl.Instance.SaveGameStateUI ();
-		PlayerPrefs.Save ();
+		try {
+			ResetStats ();
+			SetLastLevelName ();
+			UIControl.Instance.SaveGameStateUI ();
+			PlayerPrefs.Save ();
+		}catch{
+			Debug.Log ("Could Not savegame in GameController");
+		}
 	}
 
 	public void LoadGame (){
-		Debug.Log ("Loading game, levelreached: " + levelReached);
-		SceneManager.LoadScene (PlayerPrefs.GetString (levelReached));
-		//Time.timeScale = 1f;
+		try{
+			Debug.Log ("Loading game, levelreached: " + levelReached);
+			SceneManager.LoadScene (PlayerPrefs.GetString (levelReached));
+			//Time.timeScale = 1f;
+		}catch{
+			Debug.Log ("Could Not LoadGame");
+		}
 	}
 
 	public void Continue (){

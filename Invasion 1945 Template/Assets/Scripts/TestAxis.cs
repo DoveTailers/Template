@@ -46,7 +46,12 @@ public class TestAxis : MonoBehaviour {
 		if(GameController.Instance.puzzle1Checkpoint) {
 			betweenLevels = true;
 			camera.transform.position = new Vector3 (camera.transform.position.x, camera.transform.position.y + 13, camera.transform.position.z);
-			spaceShipRigidBody.transform.position = new Vector3 (spaceShipRigidBody.transform.position.x + 2, spaceShipRigidBody.transform.position.y + 13, spaceShipRigidBody.transform.position.z);
+			// added by Artem to fix null pointer
+			try{
+				spaceShipRigidBody.transform.position = new Vector3 (spaceShipRigidBody.transform.position.x + 2, spaceShipRigidBody.transform.position.y + 13, spaceShipRigidBody.transform.position.z);
+			}catch{
+				Debug.Log ("testaxis line 51: could not get spaceShipRigidBody poisiton");
+			}
 		}
 		GameObject[] innerAsteroids = GameObject.FindGameObjectsWithTag ("InnerAsteroids");
 		if (GameController.Instance.puzzle1NumOfDeaths > 2 && (innerAsteroids.Length > 0)) {

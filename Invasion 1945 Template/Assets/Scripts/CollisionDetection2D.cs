@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CollisionDetection2D : MonoBehaviour {
 
@@ -7,11 +8,17 @@ public class CollisionDetection2D : MonoBehaviour {
 	public static bool collision = false;
 	public GameObject Explosion;
 
+	private string thisScene;
+
 
 	// Use this for initialization
 	void Start () {
+		
 		reverse = false;
 		collision = false;
+
+		thisScene = SceneManager.GetActiveScene ().name;
+		//print ("Collision detection thisScene: " + thisScene);
 	}
 
 
@@ -24,7 +31,7 @@ public class CollisionDetection2D : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collider) {
-		if (!(collider.gameObject.CompareTag ("Maze")) ) {
+		if (!collider.gameObject.CompareTag ("Maze") && !(thisScene == "Boss")) {
 			Instantiate(Explosion, this.gameObject.transform.position, Quaternion.identity);
 			Destroy (this.gameObject);
 			collision = true;

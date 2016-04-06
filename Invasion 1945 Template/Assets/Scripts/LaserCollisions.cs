@@ -6,7 +6,7 @@ public class LaserCollisions : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.CompareTag ("Lazer") || collider.gameObject.CompareTag ("Missle") || collider.gameObject.CompareTag ("Bullet")) {
-			Debug.Log ("shot");
+			//Debug.Log ("shot");
 			Destroy (collider.gameObject);
 		} 
 		if (collider.gameObject.CompareTag("Player") && UIControl.Instance.PlayerIsDead (-2.0f)) {

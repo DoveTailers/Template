@@ -390,6 +390,14 @@ public class UIControl : MonoBehaviour {
 		healthback.CrossFadeAlpha (1f, .5f, false);
 		statsbar.CrossFadeAlpha (.8f, .5f, false);
 	}
+
+	public void DisableUI(){
+		UICanvas.gameObject.SetActive (false);
+	}
+
+	public void EnableUI(){
+		UICanvas.gameObject.SetActive (true);
+	}
 }
 
 

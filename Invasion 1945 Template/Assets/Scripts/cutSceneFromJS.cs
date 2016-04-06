@@ -22,7 +22,7 @@ class cutSceneFromJS : MonoBehaviour {
 		if (pictures.Count == 0) {
 			Object[] textures = Resources.LoadAll(imageFolderName);
 			for(var i = 0; i < textures.Length; i++){
-				Debug.Log("found");
+				//Debug.Log("found");
 				pictures.Add(textures[i]);
 			}
 		}
@@ -34,7 +34,11 @@ class cutSceneFromJS : MonoBehaviour {
 	     nextPic = Time.deltaTime + PictureRateInSeconds;
 	     counter += 1;
 	//     if(MakeTexture){
-		GetComponent<Renderer>().material.mainTexture = pictures[counter] as Texture;
+		try{
+			GetComponent<Renderer>().material.mainTexture = pictures[counter] as Texture;
+		}catch{
+			Debug.Log ("index error");
+		}
 //		gameObject.renderer.material.mainTexture = pictures[counter];
 //	     GetComponent<Renderer>().material.mainTexture = pictures[counter];
 	//         renderer.material.mainTexture = pictures[counter];
